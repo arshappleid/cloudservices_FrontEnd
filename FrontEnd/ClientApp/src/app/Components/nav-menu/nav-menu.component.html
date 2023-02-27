@@ -1,0 +1,41 @@
+<header>
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+      <a class="navbar-brand"
+        [routerLink]="['/']">FrontEnd</a>
+      <button class="navbar-toggler border-0"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()">
+        <span class="navbar-toggler">
+          <i class="bi bi-list border-0"
+            style="color:black"></i>
+        </span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+        [ngClass]="{ show: isExpanded }">
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link text-dark"
+              [routerLink]="['/']">Home</a>
+          </li>
+          <li class="nav-item"
+            [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark"
+              [routerLink]="['/contact']">Contact</a>
+          </li>
+          <li class="nav-item"
+            [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark"
+              [routerLink]="['/team']">Team</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
