@@ -1,8 +1,6 @@
 import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TextComponent } from './input/text/text.component';
-import { MatLegacyFormFieldModule as MatFormFieldModule} from '@angular/material/legacy-form-field';
-import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 import { DropdownComponent } from './input/dropdown/dropdown.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,8 +15,6 @@ import { BrowserModule } from '@angular/platform-browser';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
     ReactiveFormsModule
   ],
   exports: [

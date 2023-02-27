@@ -22,7 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +62,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatNativeDateModule,
     MatButtonModule,
     MatSelectModule,
+    //NGB Bootstrap Modules,
+    NgbCarouselModule,
+
 
 
   ],

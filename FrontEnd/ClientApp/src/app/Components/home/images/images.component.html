@@ -1,8 +1,40 @@
 <div>
-  <h4 class="text-center mb-3 text-dark">What we Offer</h4>
-  <div>
-    <!--Add the images_url her-->
-
-
+  <h4 class="text-center mb-3 text-dark">Our Services</h4>
+  <div class="row d-flex justify-content-center">
+    <ngb-carousel *ngIf="images_url">
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images_url[0].path"
+            style="display:block;width:75vh;margin:0 auto;height: 60em;max-height: 60vh;"
+            alt="Random first slide" />
+        </div>
+        <div class="carousel-caption">
+          <h3>{{images_url[0].label}}</h3>
+          <p>{{images_url[0].description}}</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images_url[1].path"
+            style="display:block;width:75vh;margin:0 auto;height: 60em;max-height: 60vh;"
+            alt="Random second slide" />
+        </div>
+        <div class="carousel-caption">
+          <h3>{{images_url[0].label}}</h3>
+          <p>{{images_url[1].description}}</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images_url[2].path"
+            style="display:block;width:75vh;margin:0 auto;height: 60em;max-height: 60vh;"
+            alt="Random third slide" />
+        </div>
+        <div class="carousel-caption">
+          <h3>{{images_url[0].label}}</h3>
+          <p>{{images_url[2].description}}</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
   </div>
 </div>
