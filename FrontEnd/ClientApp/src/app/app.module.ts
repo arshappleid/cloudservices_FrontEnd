@@ -23,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { ApiComponent } from './Components/home/api-services/api.component';
+import { DataServicesComponent } from './Components/home/data-services/data-services.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,9 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     FetchDataComponent,
     ImagesComponent,
     ContactComponent,
-    TeamComponent
+    TeamComponent,
+    ApiComponent,
+    DataServicesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

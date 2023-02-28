@@ -11,9 +11,9 @@ export class ImagesComponent implements OnInit {
    */
   @Input() img_height: string | undefined;
   images_url = [
-    { path: "https://cdn.pixabay.com/photo/2023/02/14/18/55/flowers-7790227_1280.jpg",label:"label1", description: "Some image description 1" },
-    {path:"https://cdn.pixabay.com/photo/2023/02/08/08/50/frequency-wave-7776034_1280.jpg",label:"label2",description :"Some image description 2"},
-    {path:"https://cdn.pixabay.com/photo/2023/02/14/18/55/flowers-7790227_1280.jpg",label:"label3",description :"Some image description 3"}
+    { path: "https://cloudserviceimgstorage.blob.core.windows.net/images/building_websites.svg",label:"Website Development", description: "A custom website to reach more clients." },
+    {path:"https://cloudserviceimgstorage.blob.core.windows.net/images/create_automation.svg",label:"Process Automation",description :"Automate daily tasks, to save money and time."},
+    {path:"https://cloudserviceimgstorage.blob.core.windows.net/images/manage_organization.svg",label:"label3",description :"Manage your whole organization, from your devices."}
   ];
 
   constructor(config: NgbCarouselConfig) {
