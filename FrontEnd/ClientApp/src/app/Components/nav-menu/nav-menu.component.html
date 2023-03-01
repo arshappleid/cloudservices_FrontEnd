@@ -1,6 +1,6 @@
-<header>
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container">
+<header style="background-color: rgb(67,67,68);">
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
+    <div class="container text-white">
       <a class="navbar-brand"
         [routerLink]="['/']">{{companyName}}</a>
       <button class="navbar-toggler border-0"
@@ -21,12 +21,12 @@
           <li class="nav-item"
             [routerLinkActive]="['link-active']"
             [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark"
+            <a class="nav-link"
               [routerLink]="['/']">Home</a>
           </li>
           <li class="nav-item"
             [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark"
+            <a class="nav-link"
               [routerLink]="['/contact']">Contact</a>
           </li>
         </ul>
