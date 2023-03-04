@@ -7,6 +7,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+
+  isMobile: boolean = false;
+  
   contactForm!: FormGroup;
   validResp: any;
   showDatePicker = false;
@@ -14,6 +17,20 @@ export class ContactComponent implements OnInit {
 
   constructor(public _formbuilder: FormBuilder , private http : HttpClient){}
   ngOnInit() {
+    // check for mobile
+    if (navigator.userAgent.match(/Android/i)
+         || navigator.userAgent.match(/webOS/i)
+         || navigator.userAgent.match(/iPhone/i)
+         || navigator.userAgent.match(/iPad/i)
+         || navigator.userAgent.match(/iPod/i)
+         || navigator.userAgent.match(/BlackBerry/i)
+         || navigator.userAgent.match(/Windows Phone/i)) {
+            this.isMobile = true ;
+         } else {
+            this.isMobile = false ;
+    }
+
+
     this.contactForm = this._formbuilder.group({
       name: new FormControl('' , Validators.required),
       email: new FormControl('' ,[Validators.required , Validators.email]),
