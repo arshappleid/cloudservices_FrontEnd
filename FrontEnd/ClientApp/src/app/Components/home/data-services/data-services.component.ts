@@ -1,11 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'data-services',
   templateUrl: './data-services.component.html',
   styleUrls: ['./data-services.component.css']
 })
-export class DataServicesComponent {
+export class DataServicesComponent implements OnInit{
+  isMobile: boolean = false;
+  ngOnInit(): void {
+    // check for mobile
+    if (navigator.userAgent.match(/Android/i)
+         || navigator.userAgent.match(/webOS/i)
+         || navigator.userAgent.match(/iPhone/i)
+         || navigator.userAgent.match(/iPad/i)
+         || navigator.userAgent.match(/iPod/i)
+         || navigator.userAgent.match(/BlackBerry/i)
+         || navigator.userAgent.match(/Windows Phone/i)) {
+            this.isMobile = true ;
+         } else {
+            this.isMobile = false ;
+         }
+  }
    images = [
      { url: "https://cloudserviceimgstorage.blob.core.windows.net/images/data_charts.svg", title: "Data Charts", alt: "Chat Gpt Source", description: "Create Visuals to understand buisness performce.", link: "#" },
 

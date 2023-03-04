@@ -25,6 +25,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { ApiComponent } from './Components/home/api-services/api.component';
 import { DataServicesComponent } from './Components/home/data-services/data-services.component';
+import { IonicModule } from '@ionic/angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +58,7 @@ import { DataServicesComponent } from './Components/home/data-services/data-serv
     SharedModule,
     FooterModule,
     FormsModule,
+    IonicModule,
     ReactiveFormsModule,
     MatNativeDateModule,
     MatFormFieldModule,
