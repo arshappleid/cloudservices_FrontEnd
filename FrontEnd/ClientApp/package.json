@@ -1,6 +1,6 @@
 {
-  "name": "frontend",
-  "version": "0.0.0",
+  "name": "Custom Cloud Solutions",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "ng s": "ng s --watch",
