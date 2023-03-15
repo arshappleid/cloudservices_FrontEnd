@@ -23,6 +23,14 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\Components\" />
+    <None Remove="ClientApp\dist\polyfills.421347514a7c5841.js" />
+    <None Remove="ClientApp\dist\index.html" />
+    <None Remove="ClientApp\dist\3rdpartylicenses.txt" />
+    <None Remove="ClientApp\dist\bootstrap-icons.35e09da2aecdd969.woff2" />
+    <None Remove="ClientApp\dist\styles.6b207d9fd7eef3b9.css" />
+    <None Remove="ClientApp\dist\runtime.f45c5af40b9bda80.js" />
+    <None Remove="ClientApp\dist\bootstrap-icons.cb4c7c05f3292543.woff" />
+    <None Remove="ClientApp\dist\assets\styles\material\_buttom-base-theme.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ClientApp\src\app\Components\" />

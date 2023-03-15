@@ -3,7 +3,8 @@
   <div *ngIf="!isMobile">
 
     <form [formGroup]="contactForm"
-      class="border border-3 p-5">
+      class="border border-1 p-5"
+      style="background-color: rgb(34, 37, 41);">
       <div class="container-fluid">
         <div class="row">
           <mat-form-field class="col col-sm-3">
@@ -12,7 +13,7 @@
               formControlName="name">
           </mat-form-field>
 
-          <mat-form-field class="col col-sm-3 float-right">
+          <mat-form-field class="col col-sm-4 float-right">
             <mat-label matLabel>Contact Email</mat-label>
             <input matInput
               formControlName="email">
@@ -20,7 +21,7 @@
               *ngIf="contactForm.get('email')?.errors?.['email']">Incorrect email format.</small>
           </mat-form-field>
 
-          <mat-form-field class="col col-sm-2 float-right">
+          <mat-form-field class="col col-sm-4 float-right">
             <mat-label matLabel>Contact Number</mat-label>
             <input matInput
               type="tel"
@@ -58,20 +59,17 @@
         <div class="row justify-content-md-center">
 
           <button mat-raised-button
-            class="col col-md-3 mx-5"
-            color="basic"
+            class="col col-md-3 mx-5 bg-info text-light"
             (click)="toggleDatePicker()">Choose Call Back Date</button>
 
           <button mat-raised-button
             type="reset"
-            class="col col-md-1 mx-5"
-            color="warn"
+            class="col col-md-1 mx-5 bg-danger text-light"
             (click)="submitrequest()">Reset</button>
 
           <button mat-raised-button
             type="submit"
-            class="col col-md-1 mx-5"
-            color="primary"
+            class="col col-md-1 mx-5 bg-primary text-light"
             (click)="submitrequest()"
             [disabled]="contactForm.invalid">Submit</button>
 
@@ -85,7 +83,7 @@
 
     <form [formGroup]="contactForm"
       class="px-4 pt-3 mat-elevation-z4"
-      style="min-height: 95vh;">
+      style="min-height: 95vh;background-color: rgb(34, 37, 41);">
       <div class="container-fluid">
         <div class="row">
           <mat-form-field class="row">
