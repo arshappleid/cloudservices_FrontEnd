@@ -25,6 +25,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { ApiComponent } from './Components/home/api-services/api.component';
 import { DataServicesComponent } from './Components/home/data-services/data-services.component';
+import { FeatureDevlopmentComponent } from './Components/home/feature-devlopment/feature-devlopment.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DataServicesComponent } from './Components/home/data-services/data-serv
     ContactComponent,
     TeamComponent,
     ApiComponent,
-    DataServicesComponent
+    DataServicesComponent,
+    FeatureDevlopmentComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

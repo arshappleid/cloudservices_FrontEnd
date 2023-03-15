@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "ng s": "ng s --watch",
+    "ng s": "ng s --host 0.0.0.0 --watch",
     "prestart": "node aspnetcore-https",
     "start": "run-script-os",
     "start:windows": "ng serve --port 44436 --ssl --ssl-cert \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem\" --ssl-key \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.key\"",
