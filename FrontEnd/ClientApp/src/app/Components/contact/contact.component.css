@@ -1,14 +1,14 @@
 ::ng-deep .mat-form-field .mat-input-element {
-    color: slategray;
+    color: black;
 }
 ::ng-deep .mat-form-field .mat-form-field-label {
-    color: slategray!important;
+    color: black!important;
 }
 ::ng-deep .mat-form-field .mat-form-field-underline {
-    background-color: slategray;
+    background-color: black;
 }
 ::ng-deep .mat-form-field .mat-form-field-ripple {
-    background-color: slategray;
+    background-color: black;
 }
 ::ng-deep .mat-form-field .mat-form-field-required-marker {
     color: slategray;

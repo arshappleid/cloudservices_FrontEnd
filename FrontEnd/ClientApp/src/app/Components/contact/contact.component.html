@@ -1,5 +1,5 @@
 <div>
-  <h3>Get in Touch with us , to get a qoute for your next project.</h3>
+  <h3 class="text-light">Get in Touch with us , to get a qoute for your next project.</h3>
   <div *ngIf="!isMobile">
 
     <form [formGroup]="contactForm"
@@ -134,27 +134,28 @@
           </mat-form-field>
 
         </div>
-
-        <div class="row mt-3 justify-content-md-center">
-          <button mat-raised-button
-            class="row"
-            color="purple"
-            (click)="toggleDatePicker()">Choose Call Back Date</button>
+        <div class="row">
+          <div class="row lg-3 justify-content-md-center">
+            <button mat-raised-button
+              class="row-md-2 bg-info text-light"
+              (click)="toggleDatePicker()">Choose Call Back</button>
+          </div>
+          <div class="row text-center">
+            <div class="col mt-3 justify-content-md-center">
+              <button mat-raised-button
+                class="bg-danger text-light"
+                type="reset"
+                (click)="submitrequest()">Reset</button>
+            </div>
+            <div class="col mt-3 justify-content-md-center">
+              <button mat-raised-button
+                class="bg-primary text-light"
+                type="submit"
+                (click)="submitrequest()"
+                [disabled]="contactForm.invalid">Submit</button>
+            </div>
+          </div>
         </div>
-        <div class="row mt-3 justify-content-md-center">
-          <button mat-raised-button
-            type="reset"
-            color="warn"
-            (click)="submitrequest()">Reset</button>
-        </div>
-        <div class="row mt-3 justify-content-md-center">
-          <button mat-raised-button
-            type="submit"
-            color="primary"
-            (click)="submitrequest()"
-            [disabled]="contactForm.invalid">Submit</button>
-        </div>
-
       </div>
     </form>
   </div>
