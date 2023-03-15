@@ -20,7 +20,9 @@ export class MainComponent implements OnInit{
             this.isMobile = true ;
          } else {
             this.isMobile = false ;
-         }
+    }
+
+    console.log("IsMobile=" + this.isMobile);
   }
   info = {
       companyEmail:'help@customcloudssolutions.com',
