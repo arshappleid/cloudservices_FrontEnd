@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit{
 
   async setupConnection() {
     var dataUrl = environment.backEnd_Endpoint + "/getclients";
+    console.log("BAckend end point url : " + dataUrl);
     this.resp = await this.http.get<any>(dataUrl);
     return true;
   }
