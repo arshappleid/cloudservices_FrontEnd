@@ -1,9 +1,11 @@
 <div>
   <!--Web App-->
-  <div class="text-center mb-5">
-    <app-typewriter class="text-white"
-      text={{buisnessMoto}}
-      delay="25"></app-typewriter>
+  <div class="text-center text-white mb-5">
+    <ngx-typed-js [strings]="buisnessMoto"
+      [typeSpeed]="25"
+      [showCursor]="true">
+      <h3 class="typing"></h3>
+    </ngx-typed-js>
   </div>
   <h4 class="text-center mb-3 text-light">What we specialize in</h4>
   <div *ngIf="!isMobile">

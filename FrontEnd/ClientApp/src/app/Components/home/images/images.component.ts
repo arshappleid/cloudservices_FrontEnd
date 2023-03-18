@@ -6,7 +6,7 @@ import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./images.component.css']
 })
 export class ImagesComponent implements OnInit {
-  buisnessMoto:string = "Ready to take your business to the next level? Our buisness is here to help you make a splash online!";
+  buisnessMoto:string[] = ["Ready to take your business to the next level? Our buisness is here to help you make a splash online!"];
   isMobile: boolean = false;
   ngOnInit(): void {
     // check for mobile

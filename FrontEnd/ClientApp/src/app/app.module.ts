@@ -26,6 +26,7 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { ApiComponent } from './Components/home/api-services/api.component';
 import { DataServicesComponent } from './Components/home/data-services/data-services.component';
 import { FeatureDevlopmentComponent } from './Components/home/feature-devlopment/feature-devlopment.component';
+import { NgxTypedJsModule } from 'ngx-typed-js';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { FeatureDevlopmentComponent } from './Components/home/feature-devlopment
     MatSelectModule,
     //NGB Bootstrap Modules,
     NgbCarouselModule,
+    NgxTypedJsModule,
 
 
 
