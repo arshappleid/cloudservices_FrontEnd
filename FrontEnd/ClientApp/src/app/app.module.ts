@@ -38,7 +38,7 @@ import { FeatureDevlopmentComponent } from './Components/home/feature-devlopment
     TeamComponent,
     ApiComponent,
     DataServicesComponent,
-    FeatureDevlopmentComponent
+    FeatureDevlopmentComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

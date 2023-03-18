@@ -6,6 +6,7 @@ import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./images.component.css']
 })
 export class ImagesComponent implements OnInit {
+  buisnessMoto:string = "Ready to take your business to the next level? Our buisness is here to help you make a splash online!";
   isMobile: boolean = false;
   ngOnInit(): void {
     // check for mobile
@@ -28,7 +29,7 @@ export class ImagesComponent implements OnInit {
   images_url = [
     { path: "https://cloudserviceimgstorage.blob.core.windows.net/images/building_websites.svg",label:"Website Development", description: "A custom website to reach more clients." },
     {path:"https://cloudserviceimgstorage.blob.core.windows.net/images/create_automation.svg",label:"Process Automation",description :"Automate daily tasks, to save money and time."},
-    {path:"https://cloudserviceimgstorage.blob.core.windows.net/images/manage_organization.svg",label:"label3",description :"Manage your whole organization, from your devices."}
+    {path:"https://cloudserviceimgstorage.blob.core.windows.net/images/manage_organization.svg",label:"Project Management",description :"Manage your whole organization, from your devices."}
   ];
 
   constructor(config: NgbCarouselConfig) {
