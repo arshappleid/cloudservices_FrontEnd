@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit{
 
 
     // perform a test query to the backEnd
+    this.performHttp();
 
   }
   performHttp() {
