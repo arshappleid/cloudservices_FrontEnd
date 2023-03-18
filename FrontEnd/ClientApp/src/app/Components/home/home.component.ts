@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit{
   isMobile: boolean = false;
+  resp: any;
+  constructor(private http: HttpClient) { }
+
   ngOnInit(): void {
     // check for mobile
     if (navigator.userAgent.match(/Android/i)
@@ -19,10 +24,29 @@ export class HomeComponent implements OnInit{
             this.isMobile = true ;
          } else {
             this.isMobile = false ;
-         }
+    }
+
+
+    // perform a test query to the backEnd
+
+  }
+  performHttp() {
+    this.setupConnection();
+    this.subscribeConnection();
   }
 
-
+  async setupConnection() {
+    var dataUrl = environment.backEnd_Endpoint + "/getclients";
+    this.resp = await this.http.get<any>(dataUrl);
+    return true;
+  }
+  async subscribeConnection() {
+    await this.setupConnection().then(() => {
+      this.resp.subscribe((httpResp: any) => {
+        console.log(httpResp);
+      })
+    })
+  }
 
 }
 

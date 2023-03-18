@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  companyName:"Custom Cloud Solutions"
+  companyName: "Custom Cloud Solutions",
+  backEnd_Endpoint:"https://10.1.0.4:5000"
 };
 
 /*
