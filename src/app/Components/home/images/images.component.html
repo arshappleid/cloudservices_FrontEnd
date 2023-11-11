@@ -1,0 +1,96 @@
+<div>
+  <!--Web App-->
+  <div class="text-center text-white mb-5">
+    <ngx-typed-js [strings]="buisnessMoto"
+      [typeSpeed]="25"
+      [showCursor]="true">
+      <h3 class="typing"></h3>
+    </ngx-typed-js>
+  </div>
+  <h4 class="text-center mb-3 text-light">What we specialize in</h4>
+  <div *ngIf="!isMobile">
+    <div class="row d-flex justify-content-center">
+      <ngb-carousel *ngIf="images_url">
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="images_url[0].path"
+              style="display:block;width:75vh;margin:0 auto;height: 60em;max-height: 60vh;"
+              alt="Random first slide" />
+          </div>
+          <div class="carousel-caption">
+            <h3 class="text-primary">{{images_url[0].label}}</h3>
+            <p class="text-primary">{{images_url[0].description}}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="images_url[1].path"
+              style="display:block;width:75vh;margin:0 auto;height: 60em;max-height: 60vh;"
+              alt="Random second slide" />
+          </div>
+          <div class="carousel-caption">
+            <h3 class="text-primary">{{images_url[1].label}}</h3>
+            <p class="text-primary">{{images_url[1].description}}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="images_url[2].path"
+              style="display:block;width:75vh;margin:0 auto;height: 60em;max-height: 60vh;"
+              alt="Random third slide" />
+          </div>
+          <div class="carousel-caption">
+            <h3 class="text-primary">{{images_url[2].label}}</h3>
+            <p class="text-primary">{{images_url[2].description}}</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+
+
+  <!--Mobile App-->
+  <div *ngIf="isMobile"
+    class="bg-dark"
+    style="border-radius: 25px;">
+    <div class="row d-flex justify-content-center">
+      <ngb-carousel *ngIf="images_url"
+        [interval]="4000">
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="images_url[0].path"
+              style="margin:0 auto;height: 60em;max-height: 60vh;object-fit:contain;"
+              alt="Random first slide" />
+          </div>
+          <div class="carousel-caption">
+            <h3 class="text-primary">{{images_url[0].label}}</h3>
+            <p class="text-primary">{{images_url[0].description}}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="images_url[1].path"
+              style="margin:0 auto;height: 60em;max-height: 60vh;object-fit:contain;"
+              alt="Random second slide" />
+          </div>
+          <div class="carousel-caption">
+            <h3 class="text-primary">{{images_url[1].label}}</h3>
+            <p class="text-primary">{{images_url[1].description}}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="images_url[2].path"
+              style="margin:0 auto;height: 60em;max-height: 60vh;object-fit:contain;"
+              alt="Random third slide" />
+          </div>
+          <div class="carousel-caption">
+            <h3 class="text-primary">{{images_url[2].label}}</h3>
+            <p class="text-primary">{{images_url[2].description}}</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+  <!--All these items should be in the middle.-->
+  <!--Desktop App-->
+  <div *ngIf="!isMobile">
+    <div class="d-flex justify-content-center flex-nowrap m-5">
+      <app-images class="w-75"
+        style="height: 50% !important;"
+        img_height="'50px'"></app-images>
+    </div>
+    <app-feature-devlopment class="m-3 mat-elevation-z4"></app-feature-devlopment>
+    <data-services class="rounded m-4"></data-services>
+    <api-examples class="rounded m-4"></api-examples>
+  </div>
+  <!--Mobile App-->
+  <div *ngIf="isMobile"
+    style="overflow-x: hidden;">
+    <app-images class="mx-1"
+      style="height: 50% !important; min-height: 85vh;"
+      img_height="'50px'"></app-images>
+
+    <!--Rest of the cards-->
+    <app-feature-devlopment class="m-3 mat-elevation-z4"></app-feature-devlopment>
+    <data-services class="m-3 mat-elevation-z4"></data-services>
+    <api-examples class="m-3 mat-elevation-z4"></api-examples>
+
+
+
+  </div>
+</div>
