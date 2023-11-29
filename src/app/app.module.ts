@@ -74,8 +74,6 @@ import { ServicesComponent } from './Components/services/services.component';
     NgbCarouselModule,
     NgxTypedJsModule,
 
-
-
   ],
   providers: [],
   bootstrap: [AppComponent],
