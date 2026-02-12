@@ -20,6 +20,9 @@ RUN npm run build --prod
 # Use nginx:alpine for a lightweight production image
 FROM nginx:alpine
 
+# Copy custom nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Copy built assets from build-stage to nginx serve directory
 COPY --from=build-stage /app/src/assets /usr/share/nginx/html/assets
 COPY --from=build-stage /app/dist /usr/share/nginx/html

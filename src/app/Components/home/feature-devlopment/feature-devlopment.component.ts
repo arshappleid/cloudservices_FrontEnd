@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ConfigService } from '../../../services/config.service';
 
 @Component({
   selector: 'app-feature-devlopment',
@@ -6,7 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feature-devlopment.component.css']
 })
 export class FeatureDevlopmentComponent implements OnInit{
-isMobile: boolean = false;
+  @Input() serviceIndex: number = 0;
+  isMobile: boolean = false;
+
+  /*
+  Icons taken from :
+  https://undraw.co/illustrations
+  Hex code : #0276FF
+   */
+  title: string = '';
+  images: any[] = [];
+
+  constructor(private configService: ConfigService) {}
+
   ngOnInit(): void {
     // check for mobile
     if (navigator.userAgent.match(/Android/i)
@@ -20,19 +33,12 @@ isMobile: boolean = false;
          } else {
             this.isMobile = false ;
          }
+
+    const config = this.configService.getConfig();
+    const service = config.home.homeServices[this.serviceIndex];
+    if (service) {
+      this.title = service.title;
+      this.images = service.items;
+    }
   }
-
-  /*
-  Icons taken from :
-  https://undraw.co/illustrations
-  Hex code : #0276FF
-   */
-  title = "Website solutions for your buisness";
-  images = [
-    { url: "https://cloudservicesimages.s3.amazonaws.com/images/online_calendar.svg",title:"Scheduling", alt: "Chat Gpt Source", description: "Take the hassle out of scheduling meetings with our convenient integration that lets your clients book appointments directly from your website.", link: "#" },
-    { url: "https://cloudservicesimages.s3.amazonaws.com/images/web_shopping.svg", title: "Online Product Store", alt: "Online Store", description: "Are you a business looking to expand your sales channels and reach a wider audience? In today's digital age, having an online store is crucial to stay competitive and cater to the changing needs of your customers. With an online store, you can easily sell your products or services 24/7, anywhere in the world, without the need for a physical storefront.", link: "#" },
-    {url:"https://cloudservicesimages.s3.amazonaws.com/images/design_feedback.svg", title: "Buisness Project Management Solutions", alt: "Spotify", description: "Tired of constantly searching for the right document or service for your business needs? Do you want to simplify your workflow and save time and money? If so, we have the solution for you!", link: "#" },
-
-
-    ]
 }

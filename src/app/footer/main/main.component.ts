@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'footer',
@@ -8,6 +8,21 @@ import { environment } from 'src/environments/environment';
 })
 export class MainComponent implements OnInit{
   isMobile: boolean = false;
+  info: any;
+  footerConfig: any;
+
+  constructor(private configService: ConfigService) {
+    const config = this.configService.getConfig();
+    this.footerConfig = config.footer;
+    this.info = {
+      companyEmail: config.footer.companyEmail,
+      companyName: config.companyName,
+      companyAddress: config.footer.companyAddress,
+      companyPhoneNumber: config.footer.companyPhoneNumber,
+      vision: config.footer.vision
+    };
+  }
+
   ngOnInit(): void {
     // check for mobile
     if (navigator.userAgent.match(/Android/i)
@@ -23,12 +38,5 @@ export class MainComponent implements OnInit{
     }
 
     console.log("IsMobile=" + this.isMobile);
-  }
-  info = {
-      companyEmail:'help@customcloudssolutions.com',
-      companyName : environment.companyName,
-      companyAddress:"Arlington , VA , US",
-    companyPhoneNumber: "780 935 1322",
-      vision:"Building client solutions, to ease up their daily workflow."
   }
 }

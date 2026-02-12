@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '../../../services/config.service';
 
 @Component({
   selector: 'api-examples',
@@ -27,14 +28,12 @@ export class ApiComponent implements OnInit{
   https://undraw.co/illustrations
   Hex code : #0276FF
    */
-  images = [
+  sectionTitle: string;
+  images: any[];
 
-  { url: "https://cloudservicesimages.s3.amazonaws.com/images/spotify.png", title: "Spotify api", alt: "Spotify", description: "Reach your music clients through your app.", link: "https://open.spotify.com/" },
-   
-    { url: "https://cloudservicesimages.s3.amazonaws.com/images/active_support.svg",title:"CHAT GPT", alt: "Chat Gpt Source", description: "Use the latest AI powered engine, to answer your clients questions so that you do not have to.", link: "https://openai.com/" },
-    { url: "https://cloudservicesimages.s3.amazonaws.com/images/stripePayment.svg", title: "STRIPE PAYMENT", alt: "Stripe Payment Api", description: "Collect payments from your clients, for your available products and services.", link: "https://stripe.com/en-ca" },
-    {url:"https://cloudservicesimages.s3.amazonaws.com/images/spotify.png", title: "Spotify api", alt: "Spotify", description: "Reach your music clients through your app.", link: "https://open.spotify.com/" },
-
-
-    ]
+  constructor(private configService: ConfigService) {
+    const config = this.configService.getConfig();
+    this.sectionTitle = config.home.apiServices.title;
+    this.images = config.home.apiServices.items;
+  }
 }

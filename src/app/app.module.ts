@@ -22,11 +22,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-import { ApiComponent } from './Components/home/api-services/api.component';
-import { DataServicesComponent } from './Components/home/data-services/data-services.component';
 import { FeatureDevlopmentComponent } from './Components/home/feature-devlopment/feature-devlopment.component';
 import { NgxTypedJsModule } from 'ngx-typed-js';
 import { ServicesComponent } from './Components/services/services.component';
+import { APP_INITIALIZER } from '@angular/core';
+import { ConfigService } from './services/config.service';
+
+export function initializeApp(configService: ConfigService) {
+  return () => configService.loadConfig();
+}
 
 @NgModule({
   declarations: [
@@ -36,8 +40,6 @@ import { ServicesComponent } from './Components/services/services.component';
     ImagesComponent,
     ContactComponent,
     TeamComponent,
-    ApiComponent,
-    DataServicesComponent,
     FeatureDevlopmentComponent,
     ServicesComponent,
   ],
@@ -75,7 +77,14 @@ import { ServicesComponent } from './Components/services/services.component';
     NgxTypedJsModule,
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [ConfigService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   schemas:[]
 })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '../../../services/config.service';
 
 @Component({
   selector: 'data-services',
@@ -21,14 +22,13 @@ export class DataServicesComponent implements OnInit{
             this.isMobile = false ;
          }
   }
-   images = [
-     { url: "https://cloudservicesimages.s3.amazonaws.com/images/data_charts.svg", title: "Data Charts", alt: "Data Charts", description: "Create Visuals to understand buisness performce.", link: "#" },
+  sectionTitle: string;
+  images: any[];
 
-     { url: "https://cloudservicesimages.s3.amazonaws.com/images/data_dashboard.svg", title: "Data Dashboards", alt: "Data Dashboards", description: "Make visual data dashboard, that your team can use daily to track data changes.", link: "#" },
-
-     { url: "https://cloudservicesimages.s3.amazonaws.com/images/database.jpg", title: "Database Management", alt: "Data Management", description: "Create, Manage, Maintain databse , to support your applications.", link: "#" },
-
-
-   ]
+  constructor(private configService: ConfigService) {
+    const config = this.configService.getConfig();
+    this.sectionTitle = config.home.dataServices.title;
+    this.images = config.home.dataServices.items;
+  }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,9 @@ import { environment } from 'src/environments/environment';
 export class HomeComponent implements OnInit{
   isMobile: boolean = false;
   resp: any;
-  constructor(private http: HttpClient) { }
+  homeServices: any[] = [];
+
+  constructor(private http: HttpClient, private configService: ConfigService) { }
 
   ngOnInit(): void {
     // check for mobile
@@ -26,6 +29,7 @@ export class HomeComponent implements OnInit{
             this.isMobile = false ;
     }
 
+    this.homeServices = this.configService.getConfig().home.homeServices;
 
     // perform a test query to the backEnd
     this.performHttp();

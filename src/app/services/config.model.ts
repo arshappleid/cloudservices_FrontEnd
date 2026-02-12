@@ -1,0 +1,89 @@
+export interface NavLink {
+  label: string;
+  route: string;
+}
+
+export interface CarouselItem {
+  path: string;
+  label: string;
+  description: string;
+}
+
+export interface HomeServiceItem {
+  url: string;
+  title: string;
+  alt: string;
+  description: string;
+  link: string;
+}
+
+export interface HomeServiceSection {
+  title: string;
+  items: HomeServiceItem[];
+}
+
+export interface ServiceItem {
+  name: string;
+  description: string;
+  img_url: string;
+}
+
+export interface FooterLink {
+  label: string;
+  url: string;
+}
+
+export interface SiteConfig {
+  companyName: string;
+  backendEndpoint: string;
+  navLinks: NavLink[];
+  home: {
+    heroMotto: string[];
+    heroSectionTitle: string;
+    carousel: CarouselItem[];
+    homeServices: HomeServiceSection[];
+  };
+  services: {
+    pageTitle: string;
+    pageTitleMobile: string;
+    items: ServiceItem[];
+  };
+  contact: {
+    pageTitle: string;
+    formLabels: {
+      name: string;
+      email: string;
+      emailError: string;
+      contactNumber: string;
+      contactNumberError: string;
+      projectDescription: string;
+      chooseDate: string;
+      dateHint: string;
+      chooseCallBackDate: string;
+      chooseCallBackMobile: string;
+      resetButton: string;
+      submitButton: string;
+    };
+  };
+  footer: {
+    socialMediaText: string;
+    companyEmail: string;
+    companyAddress: string;
+    companyPhoneNumber: string;
+    vision: string;
+    copyright: string;
+    sections: {
+      products: {
+        title: string;
+        links: FooterLink[];
+      };
+      usefulLinks: {
+        title: string;
+        links: FooterLink[];
+      };
+      contact: {
+        title: string;
+      };
+    };
+  };
+}

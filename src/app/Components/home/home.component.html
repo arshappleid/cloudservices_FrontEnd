@@ -7,9 +7,9 @@
         style="height: 50% !important;"
         img_height="'50px'"></app-images>
     </div>
-    <app-feature-devlopment class="m-3 mat-elevation-z4"></app-feature-devlopment>
-    <data-services class="rounded m-4"></data-services>
-    <api-examples class="rounded m-4"></api-examples>
+    <app-feature-devlopment *ngFor="let service of homeServices; let i = index"
+      [serviceIndex]="i"
+      class="m-3 mat-elevation-z4"></app-feature-devlopment>
   </div>
   <!--Mobile App-->
   <div *ngIf="isMobile"
@@ -19,9 +19,9 @@
       img_height="'50px'"></app-images>
 
     <!--Rest of the cards-->
-    <app-feature-devlopment class="m-3 mat-elevation-z4"></app-feature-devlopment>
-    <data-services class="m-3 mat-elevation-z4"></data-services>
-    <api-examples class="m-3 mat-elevation-z4"></api-examples>
+    <app-feature-devlopment *ngFor="let service of homeServices; let i = index"
+      [serviceIndex]="i"
+      class="m-3 mat-elevation-z4"></app-feature-devlopment>
 
 
 

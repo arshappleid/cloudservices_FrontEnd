@@ -1,0 +1,205 @@
+{
+	"companyName": "Cloud Compliant Solutions",
+	"backendEndpoint": "https://10.1.0.4:5000",
+
+	"navLinks": [
+		{ "label": "Home", "route": "/" },
+		{ "label": "Services", "route": "/services" },
+		{ "label": "Contact", "route": "/contact" }
+	],
+
+	"home": {
+		"heroMotto": [
+			"We help buisness to meet tough Security and Compliance requirements, with our cybersecurity expertise."
+		],
+		"heroSectionTitle": "What we specialize in",
+
+		"carousel": [
+			{
+				"path": "https://images.pexels.com/photos/5380596/pexels-photo-5380596.jpeg?auto=compress&cs=tinysrgb&w=1200",
+				"label": "HIPAA Compliance Meeting",
+				"description": "Helping your Cloud Environment meet HIPAA Compliance"
+			},
+			{
+				"path": "https://images.pexels.com/photos/5935788/pexels-photo-5935788.jpeg?auto=compress&cs=tinysrgb&w=1200",
+				"label": "SOC 2 Compliance Meeting",
+				"description": "Ensuring your Cloud Environment meets SOC 2 Compliance."
+			},
+			{
+				"path": "https://images.pexels.com/photos/4508751/pexels-photo-4508751.jpeg?auto=compress&cs=tinysrgb&w=1200",
+				"label": "Cloud Deployment and Management",
+				"description": "We manage your cloud environment, so that you can focus on building your application."
+			}
+		],
+
+		"homeServices": [
+			{
+				"title": "Cloud Security Expertise",
+				"items": [
+					{
+						"url": "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"title": "Network Security",
+						"alt": "IT engineer configuring network security cables in a server rack",
+						"description": "From managing firewalls to implementing intrusion detection systems, we ensure that your network is secure and protected against potential threats.",
+						"link": "#"
+					},
+					{
+						"url": "https://images.pexels.com/photos/5474289/pexels-photo-5474289.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"title": "Least Privelege IAM",
+						"alt": "Hand holding a secure USB key representing identity and access management",
+						"description": "Uncertain about how to manage user access and permissions in your cloud environment? Our team of experts can help you implement a least privilege IAM strategy, ensuring that users only have access to the resources they need to do their job, while minimizing the risk of unauthorized access.",
+						"link": "#"
+					},
+					{
+						"url": "https://images.pexels.com/photos/5483147/pexels-photo-5483147.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"title": "Employee Access Management for Governance",
+						"alt": "Cybersecurity professional wearing an identification badge in a secure office",
+						"description": "Managing employee access to cloud resources is crucial for maintaining security and governance. Our team can help you implement an effective access management strategy, ensuring that employees have the appropriate level of access to cloud resources while minimizing the risk of unauthorized access or data breaches.",
+						"link": "#"
+					},
+					{
+						"url": "https://images.pexels.com/photos/5240543/pexels-photo-5240543.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"title": "Cloud Penetration Testing",
+						"alt": "Security analyst performing penetration testing on a laptop in a dark environment",
+						"description": "Identify vulnerabilities in your cloud environment before attackers do. Our penetration testing services simulate real-world attacks to uncover weaknesses and provide actionable recommendations to enhance your security posture.",
+						"link": "#"
+					}
+				]
+			},
+			{
+				"title": "Compliance and Risk Management",
+				"items": [
+					{
+						"url": "https://images.pexels.com/photos/5673503/pexels-photo-5673503.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"title": "HIPAA Compliance",
+						"alt": "Professional reviewing HIPAA compliance requirements on a laptop",
+						"description": "Our Consultants understand the HIPAA security Law, and can deliver solutions that meet its requirements, so that your healthcare application can be compliant and secure.",
+						"link": "#"
+					},
+					{
+						"url": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"title": "SOC 2 Compliance",
+						"alt": "Close-up of security protection software interface on a computer screen",
+						"description": "Our Consultants understand the SOC 2 compliance requirements, and can deliver solutions that meet its requirements, so that your application can be compliant and secure.",
+						"link": "#"
+					},
+					{
+						"url": "https://images.pexels.com/photos/4597280/pexels-photo-4597280.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"title": "Database Management",
+						"alt": "Secure server racks and hardware in a modern data center facility",
+						"description": "Create, Manage, Maintain databse , to support your applications.",
+						"link": "#"
+					}
+				]
+			},
+			{
+				"title": "Access Management",
+				"items": [
+					{
+						"url": "https://images.pexels.com/photos/5380684/pexels-photo-5380684.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"title": "Ensure continuous compliance with HIPAA and SOC 2",
+						"alt": "Cybersecurity professional monitoring continuous compliance on a screen",
+						"description": "Unsure if the next change, will cause you to break compliance? We can help you ensure that your cloud environment remains compliant with HIPAA and SOC 2, even as you make changes and updates to your applications.",
+						"link": "https://open.spotify.com/"
+					},
+					{
+						"url": "https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"title": "Cloud Auditing",
+						"alt": "Female IT engineer auditing cloud servers with a laptop in a data center",
+						"description": "Our cloud auditing services provide you with a comprehensive assessment of your cloud environment, identifying potential security risks and compliance issues.",
+						"link": "https://openai.com/"
+					},
+					{
+						"url": "https://images.pexels.com/photos/5050305/pexels-photo-5050305.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"title": "Risk Assesment and Mitigation",
+						"alt": "Close-up of network switch LEDs and patch panels used for risk monitoring",
+						"description": "Our risk assessment and mitigation services help you identify potential security risks in your cloud environment and develop strategies to mitigate those risks, ensuring that your applications remain secure and compliant.",
+						"link": "https://stripe.com/en-ca"
+					},
+					{
+						"url": "https://images.pexels.com/photos/5473955/pexels-photo-5473955.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"title": "Identity Management Solutions",
+						"alt": "Woman with binary code projected on her face representing digital identity verification",
+						"description": "Our identity management solutions help you manage user identities and access to cloud applications, ensuring that only authorized users have access to sensitive data and applications.",
+						"link": "https://open.spotify.com/"
+					}
+				]
+			}
+		]
+	},
+
+	"services": {
+		"pageTitle": "Our Pricing Models",
+		"pageTitleMobile": "Pricing Models",
+		"items": [
+			{
+				"name": "New Cloud Environment Setup",
+				"description": "We can help you set up a new cloud environment (AWS/Azure/GCP) that meets your specific needs and requirements. Either it is setting up a database or setting up a secure network architecture, we can help you with it.",
+				"img_url": "https://images.pexels.com/photos/5475793/pexels-photo-5475793.jpeg?auto=compress&cs=tinysrgb&w=600",
+				"pricing": "Starting at $2,500 / project"
+			},
+			{
+				"name": "Compliance Meeting",
+				"description": "Our company provides a full project completion service for website development, including consultation, design, coding, testing, and deployment. They aim to make the process hassle-free for their clients. Additionally, they offer maintenance services to keep the website up-to-date and functioning optimally, addressing issues, updating content, and making necessary changes.",
+				"img_url": "https://images.pexels.com/photos/1181316/pexels-photo-1181316.jpeg?auto=compress&cs=tinysrgb&w=600",
+				"pricing": "$200 / hour"
+			},
+			{
+				"name": "Auditing Reports",
+				"description": "Looking to complete your business software project quickly and efficiently? We specialize in helping businesses complete their software projects on a contract basis, offering expert assistance in niche areas to ensure your project is completed on time and on budget. With our years of experience and commitment to quality, you can trust us to deliver top-notch results that meet your specific needs. So why wait? Contact us today to get started on your next project",
+				"img_url": "https://images.pexels.com/photos/5935792/pexels-photo-5935792.jpeg?auto=compress&cs=tinysrgb&w=600",
+				"pricing": "Starting at $5,000 / audit"
+			}
+		]
+	},
+
+	"contact": {
+		"pageTitle": "Get in Touch with us , to get a qoute for your next project.",
+		"formLabels": {
+			"name": "Name",
+			"email": "Contact Email",
+			"emailError": "Incorrect email format.",
+			"contactNumber": "Contact Number",
+			"contactNumberError": "Incorrect number",
+			"projectDescription": "Project Description",
+			"chooseDate": "Choose a date",
+			"dateHint": "MM/DD/YYYY",
+			"chooseCallBackDate": "Choose Call Back Date",
+			"chooseCallBackMobile": "Choose Call Back",
+			"resetButton": "Reset",
+			"submitButton": "Submit"
+		}
+	},
+
+	"footer": {
+		"socialMediaText": "Get connected with us on social networks:",
+		"companyEmail": "contact@cloudcompliant.solutions",
+		"companyAddress": "Arlington , VA , US",
+		"companyPhoneNumber": "+1 703-307-3620",
+		"vision": "Helping customers be secure in cloud.",
+		"copyright": "© Cloud Compliant Solutions registered Buisness Corporation:",
+		"sections": {
+			"products": {
+				"title": "Products",
+				"links": [
+					{ "label": "AWS", "url": "#!" },
+					{ "label": "Azure", "url": "#!" },
+					{ "label": "Microsoft 365 Administration", "url": "#!" },
+					{ "label": "Compliance", "url": "#!" }
+				]
+			},
+			"usefulLinks": {
+				"title": "Useful links",
+				"links": [
+					{ "label": "Pricing", "url": "#!" },
+					{ "label": "Settings", "url": "#!" },
+					{ "label": "Orders", "url": "#!" },
+					{ "label": "Help", "url": "#!" }
+				]
+			},
+			"contact": {
+				"title": "Contact"
+			}
+		}
+	}
+}

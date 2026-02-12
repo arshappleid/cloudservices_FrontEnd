@@ -1,12 +1,14 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
+import { ConfigService } from '../../../services/config.service';
 @Component({
   selector: 'app-images',
   templateUrl: './images.component.html',
   styleUrls: ['./images.component.css']
 })
 export class ImagesComponent implements OnInit {
-  buisnessMoto:string[] = ["Ready to take your business to the next level? Our buisness is here to help you make a splash online!"];
+  buisnessMoto: string[];
+  heroSectionTitle: string;
   isMobile: boolean = false;
   ngOnInit(): void {
     // check for mobile
@@ -26,18 +28,19 @@ export class ImagesComponent implements OnInit {
   Package website : https://github.com/ivylaboratory/angular-carousel
    */
   @Input() img_height: string | undefined;
-  images_url = [
-    { path: "https://cloudservicesimages.s3.amazonaws.com/images/building_websites.svg",label:"Website Development", description: "A custom website to reach more clients." },
-    {path:"https://cloudservicesimages.s3.amazonaws.com/images/create_automation.svg",label:"Process Automation",description :"Automate daily tasks, to save money and time."},
-    {path:"https://cloudservicesimages.s3.amazonaws.com/images/manage_organization.svg",label:"Project Management",description :"Manage your whole organization, from your devices."}
-  ];
+  images_url: any[];
 
-  constructor(config: NgbCarouselConfig) {
+  constructor(config: NgbCarouselConfig, private configService: ConfigService) {
 		// customize default values of carousels used by this component tree
 		config.interval = 8000;
 		config.wrap = false;
 		config.keyboard = true;
 		config.pauseOnHover = false;
+
+    const siteConfig = this.configService.getConfig();
+    this.buisnessMoto = siteConfig.home.heroMotto;
+    this.heroSectionTitle = siteConfig.home.heroSectionTitle;
+    this.images_url = siteConfig.home.carousel;
   }
 
 

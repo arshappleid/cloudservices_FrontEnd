@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup , FormBuilder, Validators} from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import emailjs from '@emailjs/browser';
+import { ConfigService } from '../../services/config.service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -13,11 +14,23 @@ export class ContactComponent implements OnInit {
   contactForm!: FormGroup;
   validResp: any;
   showDatePicker = false;
+  pageTitle: string;
+  labels: any;
+  backendUrl: string;
+  submitSuccess: boolean = false;
+  submitError: boolean = false;
+  timeSlots: string[] = [];
 
-
-  constructor(public _formbuilder: FormBuilder , private http : HttpClient){}
+  constructor(public _formbuilder: FormBuilder, private configService: ConfigService) {
+    const config = this.configService.getConfig();
+    this.pageTitle = config.contact.pageTitle;
+    this.labels = config.contact.formLabels;
+    this.backendUrl = config.backendEndpoint;
+    this.generateTimeSlots();
+  }
   ngOnInit() {
     // check for mobile
+    emailjs.init('KBAdXMj4nlaRoxpRh');
     if (navigator.userAgent.match(/Android/i)
          || navigator.userAgent.match(/webOS/i)
          || navigator.userAgent.match(/iPhone/i)
@@ -34,6 +47,7 @@ export class ContactComponent implements OnInit {
       name: new FormControl('' , Validators.required),
       email: new FormControl('' ,[Validators.required , Validators.email]),
       contact_back_Date: new FormControl(''),
+      callback_time: new FormControl(''),
       project_description: new FormControl(''),
       contact_number : new FormControl('',Validators.pattern("[0-9]{10}")),
     })
@@ -48,13 +62,32 @@ export class ContactComponent implements OnInit {
     let parsedDate = this.contactForm.controls['contact_back_Date'].value;
     parsedDate = (new Date(parsedDate)).toLocaleDateString("en-JM",{day:'numeric',month:'numeric',year:'numeric'});
     this.contactForm.controls['contact_back_Date'].setValue(parsedDate);
-    let form = JSON.stringify(this.contactForm.getRawValue());
-    console.log(form);
-    let resp = this.http.post('apiurl', form);
-    resp.subscribe(httpResp => {
-      this.validResp = httpResp;
-    })
 
+    this.submitSuccess = false;
+    this.submitError = false;
+
+    const callbackTime = this.contactForm.controls['callback_time'].value;
+    const timeDisplay = callbackTime ? callbackTime + ' EST' : 'Not specified';
+
+    const templateParams = {
+      title: 'Client Reachout from Website',
+      name: this.contactForm.controls['name'].value,
+      callBackTime: timeDisplay,
+      message: this.contactForm.controls['project_description'].value,
+      callBackDate: parsedDate,
+      phoneNumber: this.contactForm.controls['contact_number'].value,
+      email: this.contactForm.controls['email'].value
+    };
+
+    emailjs.send('service_5kxk9nw', 'template_mlyqlu5', templateParams)
+      .then(() => {
+        this.submitSuccess = true;
+        this.resetForm();
+      })
+      .catch((error) => {
+        console.error('EmailJS send failed:', error);
+        this.submitError = true;
+      });
   }
 
    myFilter = (d: Date | null): boolean => {
@@ -64,6 +97,19 @@ export class ContactComponent implements OnInit {
      const today = new Date();
     return day !== 0 && day !== 6 && (date >today );
    };
+
+  generateTimeSlots() {
+    this.timeSlots = [];
+    for (let h = 8; h <= 18; h++) {
+      for (let m = 0; m < 60; m += 15) {
+        if (h === 18 && m > 0) break;
+        const hour12 = h > 12 ? h - 12 : h;
+        const ampm = h >= 12 ? 'PM' : 'AM';
+        const min = m.toString().padStart(2, '0');
+        this.timeSlots.push(`${hour12}:${min} ${ampm}`);
+      }
+    }
+  }
 
   toggleDatePicker() {
     if (this.showDatePicker) {

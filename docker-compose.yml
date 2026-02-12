@@ -2,8 +2,13 @@ version: "3.8"
 
 services:
     app:
-        build: .
+        build:
+            context: .
+            dockerfile: dockerfile.dev
         ports:
-            - "80:80"
+            - "4200:4200"
+        volumes:
+            - .:/app
+            - /app/node_modules
         environment:
-            - NODE_ENV=production
+            - NODE_ENV=development

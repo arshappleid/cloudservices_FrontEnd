@@ -1,43 +1,37 @@
-<header style="background-color: rgb(67,67,68);">
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
-    <div class="container text-white">
-      <a class="navbar-brand"
-        [routerLink]="['/']">{{companyName}}</a>
-      <button class="navbar-toggler border-0"
-        type="button"
-        data-toggle="collapse"
-        data-target=".navbar-collapse"
-        aria-label="Toggle navigation"
-        [attr.aria-expanded]="isExpanded"
-        (click)="toggle()">
-        <span class="navbar-toggler">
-          <i class="bi bi-list border-0"
-            style="color:black"></i>
-        </span>
-      </button>
-      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
-        [ngClass]="{ show: isExpanded }">
-        <ul class="navbar-nav flex-grow">
-          <li class="nav-item"
-            [routerLinkActive]="['link-active']"
-            [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link"
-              [routerLink]="['/']">Home</a>
-          </li>
-          <li class="nav-item"
-            [routerLinkActive]="['link-active']">
-            <a class="nav-link"
-              [routerLink]="['/services']">Services</a>
-          </li>
-
-          <li class="nav-item"
-            [routerLinkActive]="['link-active']">
-            <a class="nav-link"
-              [routerLink]="['/contact']">Contact</a>
-          </li>
-
-        </ul>
-      </div>
-    </div>
-  </nav>
+<header style="background-color: rgb(114, 114, 120)">
+	<nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
+		<div class="container text-white">
+			<a class="navbar-brand" [routerLink]="['/']">{{ companyName }}</a>
+			<button
+				class="navbar-toggler border-0"
+				type="button"
+				data-toggle="collapse"
+				data-target=".navbar-collapse"
+				aria-label="Toggle navigation"
+				[attr.aria-expanded]="isExpanded"
+				(click)="toggle()"
+			>
+				<span class="navbar-toggler">
+					<i class="bi bi-list border-0" style="color: black"></i>
+				</span>
+			</button>
+			<div
+				class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+				[ngClass]="{ show: isExpanded }"
+			>
+				<ul class="navbar-nav flex-grow">
+					<li
+						class="nav-item"
+						*ngFor="let link of navLinks"
+						[routerLinkActive]="['link-active']"
+						[routerLinkActiveOptions]="{
+							exact: link.route === '/'
+						}"
+					>
+						<a class="nav-link" [routerLink]="[link.route]">{{ link.label }}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 </header>
