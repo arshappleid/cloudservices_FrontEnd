@@ -26,6 +26,7 @@ import { FeatureDevlopmentComponent } from './Components/home/feature-devlopment
 import { NgxTypedJsModule } from 'ngx-typed-js';
 import { ServicesComponent } from './Components/services/services.component';
 import { TestimonialsComponent } from './Components/testimonials/testimonials.component';
+import { CaseStudiesComponent } from './Components/case-studies/case-studies.component';
 import { APP_INITIALIZER } from '@angular/core';
 import { ConfigService } from './services/config.service';
 
@@ -44,6 +45,7 @@ export function initializeApp(configService: ConfigService) {
     FeatureDevlopmentComponent,
     ServicesComponent,
     TestimonialsComponent,
+    CaseStudiesComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -52,6 +54,7 @@ export function initializeApp(configService: ConfigService) {
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'contact', component: ContactComponent },
       { path: 'services', component:  ServicesComponent},
+      { path: 'case-studies', component: CaseStudiesComponent },
       { path: 'testimonials', component: TestimonialsComponent },
       { path: 'team', component: TeamComponent },
     ]),

@@ -20,12 +20,16 @@ export class ContactComponent implements OnInit {
   submitSuccess: boolean = false;
   submitError: boolean = false;
   timeSlots: string[] = [];
+  bookingLink: string;
+  bookingButtonText: string;
 
   constructor(public _formbuilder: FormBuilder, private configService: ConfigService) {
     const config = this.configService.getConfig();
     this.pageTitle = config.contact.pageTitle;
     this.labels = config.contact.formLabels;
     this.backendUrl = config.backendEndpoint;
+    this.bookingLink = config.contact.bookingLink;
+    this.bookingButtonText = config.contact.bookingButtonText;
     this.generateTimeSlots();
   }
   ngOnInit() {

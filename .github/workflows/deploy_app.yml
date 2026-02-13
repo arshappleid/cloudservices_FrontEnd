@@ -1,0 +1,56 @@
+name: Deploy to Amazon ECS
+
+on:
+    push:
+        branches: ['main']
+
+env:
+    AWS_REGION: us-east-2 # set this to your preferred AWS region, e.g. us-west-1
+    ECR_REPOSITORY: cloudcompliant/companywebsite
+    ECS_SERVICE: frontend # set this to your Amazon ECS service name
+    ECS_CLUSTER: CompanyWebsite-ecs-cluster # set this to your Amazon ECS cluster name
+    ECS_TASK_DEFINITION: .aws/ecs-flaskapi-taskDefinition.json # set this to the path to your Amazon ECS task definition
+    GITHUB_ACTION_IAM_ROLE: arn:aws:iam::156041414531:role/Github-actions-backend
+    CONTAINER_NAME:
+        flask-api # set this to the name of the container in the
+        # containerDefinitions section of your task definition
+
+permissions:
+    id-token: write
+    contents: read
+
+jobs:
+    deploy:
+        name: Deploy
+        runs-on: ubuntu-latest
+        timeout-minutes: 7
+        defaults:
+            run:
+                working-directory: ./backend
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v1
+              with:
+                  role-to-assume: ${{ env.GITHUB_ACTION_IAM_ROLE }}
+                  aws-region: ${{ env.AWS_REGION }}
+
+            - name: Login to Amazon ECR
+              id: login-ecr
+              uses: aws-actions/amazon-ecr-login@v1
+
+            - name: Build, tag, and push image to Amazon ECR
+              id: build-image
+              env:
+                  ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+                  IMAGE_TAG: ${{ github.sha }}
+              run: |
+                  # Build a docker container and
+                  # push it to ECR so that it can
+                  # be deployed to ECS.
+                  docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+                  docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+                  echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT

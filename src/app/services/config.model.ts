@@ -34,6 +34,14 @@ export interface TestimonialItem {
   testimonial: string;
 }
 
+export interface CaseStudyItem {
+  name: string;
+  client: string;
+  description: string;
+  img_url: string;
+  projectLink: string;
+}
+
 export interface FooterLink {
   label: string;
   url: string;
@@ -54,6 +62,11 @@ export interface SiteConfig {
     pageTitleMobile: string;
     items: ServiceItem[];
   };
+  caseStudies: {
+    pageTitle: string;
+    pageTitleMobile: string;
+    items: CaseStudyItem[];
+  };
   testimonials: {
     pageTitle: string;
     pageTitleMobile: string;
@@ -61,6 +74,8 @@ export interface SiteConfig {
   };
   contact: {
     pageTitle: string;
+    bookingLink: string;
+    bookingButtonText: string;
     formLabels: {
       name: string;
       email: string;

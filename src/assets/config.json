@@ -5,6 +5,7 @@
 	"navLinks": [
 		{ "label": "Home", "route": "/" },
 		{ "label": "Services", "route": "/services" },
+		{ "label": "Work", "route": "/case-studies" },
 		{ "label": "Testimonials", "route": "/testimonials" },
 		{ "label": "Contact", "route": "/contact" }
 	],
@@ -154,6 +155,34 @@
 		]
 	},
 
+	"caseStudies": {
+		"pageTitle": "Our Work",
+		"pageTitleMobile": "Our Work",
+		"items": [
+			{
+				"name": "HIPAA-Compliant AWS Infrastructure",
+				"client": "HealthFirst Medical Group",
+				"description": "Designed and deployed a fully HIPAA-compliant cloud infrastructure on AWS for a multi-location medical practice. Implemented encrypted data storage, VPC isolation, IAM policies, and automated audit logging to meet all regulatory requirements.",
+				"img_url": "https://images.pexels.com/photos/5380596/pexels-photo-5380596.jpeg?auto=compress&cs=tinysrgb&w=600",
+				"projectLink": "https://github.com/CloudCompliantSolutions/hipaa-aws-infra"
+			},
+			{
+				"name": "SOC 2 Compliance Automation Toolkit",
+				"client": "FinSecure Capital",
+				"description": "Built a custom compliance automation toolkit that continuously monitors Azure resources against SOC 2 controls. Includes policy-as-code definitions, automated evidence collection, and a real-time compliance dashboard.",
+				"img_url": "https://images.pexels.com/photos/5935788/pexels-photo-5935788.jpeg?auto=compress&cs=tinysrgb&w=600",
+				"projectLink": "https://github.com/CloudCompliantSolutions/soc2-automation"
+			},
+			{
+				"name": "Zero-Trust Network Architecture on GCP",
+				"client": "DataVault Technologies",
+				"description": "Implemented a zero-trust network architecture on Google Cloud Platform including BeyondCorp access controls, identity-aware proxies, micro-segmentation, and continuous verification policies for a data analytics firm.",
+				"img_url": "https://images.pexels.com/photos/4508751/pexels-photo-4508751.jpeg?auto=compress&cs=tinysrgb&w=600",
+				"projectLink": "https://github.com/CloudCompliantSolutions/zero-trust-gcp"
+			}
+		]
+	},
+
 	"testimonials": {
 		"pageTitle": "What Our Clients Say",
 		"pageTitleMobile": "Client Testimonials",
@@ -183,6 +212,8 @@
 
 	"contact": {
 		"pageTitle": "Get in Touch with us , to get a qoute for your next project.",
+		"bookingLink": "https://outlook.office.com/bookwithme/user/fd92470cca9d49b69a280e440b0a5324@cloudcompliant.solutions?anonymous&ismsaljsauthenabled&ep=plink",
+		"bookingButtonText": "Schedule Free Consultation",
 		"formLabels": {
 			"name": "Name",
 			"email": "Contact Email",

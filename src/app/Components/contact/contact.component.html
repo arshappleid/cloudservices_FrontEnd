@@ -103,6 +103,19 @@
 				</button>
 			</div>
 
+			<!-- Schedule Free Consultation -->
+			<div class="text-center mt-4">
+				<a
+					[href]="bookingLink"
+					target="_blank"
+					rel="noopener noreferrer"
+					mat-raised-button
+					class="text-light px-5 py-2"
+					style="font-size: 1.05rem; background-color: #0078D4">
+					<i class="fas fa-calendar-check me-2"></i>{{ bookingButtonText }}
+				</a>
+			</div>
+
 			<!-- Feedback Alerts -->
 			<div *ngIf="submitSuccess" class="alert alert-success mt-4 text-center" role="alert">
 				<i class="fas fa-check-circle me-2"></i>Thank you! Your message has been sent. We will get back to you shortly.
@@ -210,6 +223,19 @@
 						[disabled]="contactForm.invalid">
 						<i class="fas fa-paper-plane me-1"></i> {{ labels.submitButton }}
 					</button>
+				</div>
+
+				<!-- Schedule Free Consultation -->
+				<div class="text-center mt-3">
+					<a
+						[href]="bookingLink"
+						target="_blank"
+						rel="noopener noreferrer"
+						mat-raised-button
+						class="text-light px-4 py-2"
+						style="font-size: 1rem; background-color: #0078D4">
+						<i class="fas fa-calendar-check me-2"></i>{{ bookingButtonText }}
+					</a>
 				</div>
 
 				<!-- Feedback Alerts -->
