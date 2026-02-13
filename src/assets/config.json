@@ -42,25 +42,39 @@
 						"url": "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg?auto=compress&cs=tinysrgb&w=600",
 						"title": "Network Security",
 						"alt": "IT engineer configuring network security cables in a server rack",
-						"description": "From managing firewalls to implementing intrusion detection systems, we ensure that your network is secure and protected against potential threats.",
+						"description": "From managing firewalls to implementing intrusion detection systems or SIEM tools, we ensure that your network is secure and protected against potential threats.",
 						"link": "#"
 					},
 					{
-						"url": "https://images.pexels.com/photos/5474289/pexels-photo-5474289.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"url": "./assets/images/windows-linux.webp",
+						"title": "Operating System Security",
+						"alt": "IT engineer configuring network security cables in a server rack",
+						"description": "We can help you secure your operating systems, whether it's Windows, Linux, or macOS, by implementing best practices for patch management, access controls, and security configurations.",
+						"link": "#"
+					},
+					{
+						"url": "./assets/images/application_security.png",
+						"title": "Application Security",
+						"alt": "IT engineer configuring network security cables in a server rack",
+						"description": "From implementing Authentication and Authorization tools, to ensuring secure secret management and key management, we can help you secure your applications and protect against potential vulnerabilities, all the way till memory based attacks.",
+						"link": "#"
+					},
+					{
+						"url": "./assets/images/iam_security.png",
 						"title": "Least Privelege IAM",
 						"alt": "Hand holding a secure USB key representing identity and access management",
 						"description": "Uncertain about how to manage user access and permissions in your cloud environment? Our team of experts can help you implement a least privilege IAM strategy, ensuring that users only have access to the resources they need to do their job, while minimizing the risk of unauthorized access.",
 						"link": "#"
 					},
 					{
-						"url": "https://images.pexels.com/photos/5483147/pexels-photo-5483147.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"url": "./assets/images/employee_access_management.png",
 						"title": "Employee Access Management for Governance",
 						"alt": "Cybersecurity professional wearing an identification badge in a secure office",
 						"description": "Managing employee access to cloud resources is crucial for maintaining security and governance. Our team can help you implement an effective access management strategy, ensuring that employees have the appropriate level of access to cloud resources while minimizing the risk of unauthorized access or data breaches.",
 						"link": "#"
 					},
 					{
-						"url": "https://images.pexels.com/photos/5240543/pexels-photo-5240543.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"url": "cloud_pentesting.jpg",
 						"title": "Cloud Penetration Testing",
 						"alt": "Security analyst performing penetration testing on a laptop in a dark environment",
 						"description": "Identify vulnerabilities in your cloud environment before attackers do. Our penetration testing services simulate real-world attacks to uncover weaknesses and provide actionable recommendations to enhance your security posture.",
