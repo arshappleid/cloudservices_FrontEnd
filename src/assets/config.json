@@ -18,17 +18,17 @@
 
 		"carousel": [
 			{
-				"path": "https://images.pexels.com/photos/5380596/pexels-photo-5380596.jpeg?auto=compress&cs=tinysrgb&w=1200",
+				"path": "./assets/images/hipaa_compliant.jpg",
 				"label": "HIPAA Compliance Meeting",
 				"description": "Helping your Cloud Environment meet HIPAA Compliance"
 			},
 			{
-				"path": "https://images.pexels.com/photos/5935788/pexels-photo-5935788.jpeg?auto=compress&cs=tinysrgb&w=1200",
+				"path": "./assets/images/soc-2-compliance.jpeg",
 				"label": "SOC 2 Compliance Meeting",
 				"description": "Ensuring your Cloud Environment meets SOC 2 Compliance."
 			},
 			{
-				"path": "https://images.pexels.com/photos/4508751/pexels-photo-4508751.jpeg?auto=compress&cs=tinysrgb&w=1200",
+				"path": "./assets/images/cloudsecurity-multi-clouds.png",
 				"label": "Cloud Deployment and Management",
 				"description": "We manage your cloud environment, so that you can focus on building your application."
 			}
@@ -137,20 +137,26 @@
 			{
 				"name": "New Cloud Environment Setup",
 				"description": "We can help you set up a new cloud environment (AWS/Azure/GCP) that meets your specific needs and requirements. Either it is setting up a database or setting up a secure network architecture, we can help you with it.",
-				"img_url": "https://images.pexels.com/photos/5475793/pexels-photo-5475793.jpeg?auto=compress&cs=tinysrgb&w=600",
-				"pricing": "Starting at $2,500 / project"
+				"img_url": "./assets/images/aws_demo_env.png",
+				"pricing": "Starting at $2,000 / project"
+			},
+			{
+				"name": "Microsoft 365 Administration",
+				"description": "We provide comprehensive Microsoft 365 administration services to help you manage and optimize your Microsoft 365 environment. Our team of experts can assist with user management,device enrollment (Windows,MacOs IOS, Android) security configurations, application integration, and ongoing support to ensure that your Microsoft 365 environment runs smoothly and efficiently.",
+				"img_url": "./assets/images/microsoft_365_admin.png",
+				"pricing": "Starting at $500 / month for 15 hours of support"
 			},
 			{
 				"name": "Compliance Meeting",
 				"description": "Our company provides a full project completion service for website development, including consultation, design, coding, testing, and deployment. They aim to make the process hassle-free for their clients. Additionally, they offer maintenance services to keep the website up-to-date and functioning optimally, addressing issues, updating content, and making necessary changes.",
-				"img_url": "https://images.pexels.com/photos/1181316/pexels-photo-1181316.jpeg?auto=compress&cs=tinysrgb&w=600",
-				"pricing": "$200 / hour"
+				"img_url": "./assets/images/soc_hipaa.tiff",
+				"pricing": "$50 / hour"
 			},
 			{
 				"name": "Auditing Reports",
 				"description": "Looking to complete your business software project quickly and efficiently? We specialize in helping businesses complete their software projects on a contract basis, offering expert assistance in niche areas to ensure your project is completed on time and on budget. With our years of experience and commitment to quality, you can trust us to deliver top-notch results that meet your specific needs. So why wait? Contact us today to get started on your next project",
-				"img_url": "https://images.pexels.com/photos/5935792/pexels-photo-5935792.jpeg?auto=compress&cs=tinysrgb&w=600",
-				"pricing": "Starting at $5,000 / audit"
+				"img_url": "./assets/images/booked.svg",
+				"pricing": "Starting at $2,000 / audit"
 			}
 		]
 	},
@@ -195,7 +201,7 @@
 			{
 				"clientName": "James Rodriguez",
 				"company": "FinSecure Capital",
-				"testimonial": "The SOC 2 audit preparation was daunting until we partnered with Cloud Compliant Solutions. They guided us through every step and we passed our audit on the first attempt. Highly recommend their expertise."
+				"testimonial": "Cloud Compliant delivered a resilient AWS Cloud Solution to store our PII data, and helped understand different architecture choices for different AWS services, and helped us make our decision by performing detailed cost analysis. He helped us justify the cost of security tooling and setup from IAM, to Network firewalls, and Log collections and Dashboard Setup. His understanding of Integrating Splunk and Palo alto firewall`s is remarkable. Giving us observability, and ensuring security against OWASP Top 10 attacks. He was hired to continue working for us and providing support to our clients for his cloud expertise. He also helped us implement CICD pipelines to migrate our applications to cloud, and also help with data migration Tasks. We were able to pass our cloud-environment audit, since prabh ensured to use the right GRC framework (ISO 27001, SOC 2) to ensure he implemented all the security controls"
 			},
 			{
 				"clientName": "Emily Chen",
