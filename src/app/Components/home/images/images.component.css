@@ -2,33 +2,139 @@
 	display: block;
 }
 
-::ng-deep .carousel-control-prev-icon,
-::ng-deep .carousel-control-next-icon {
-	filter: invert(30%);
-}
-
-::ng-deep .picsum-img-wrapper {
-	display: block;
-}
-
-::ng-deep .picsum-img-wrapper img {
+/* ── Slideshow container ── */
+.slideshow {
+	position: relative;
 	width: 100%;
-	height: 60vh;
-	object-fit: cover;
-	display: block;
+	overflow: hidden;
+	border-radius: 8px;
+	background: #111;
 }
 
-::ng-deep .carousel-control-prev,
-::ng-deep .carousel-control-next {
-	opacity: 0.7;
+/* ── Individual slide ── */
+.slide {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	transition: opacity 0.8s ease-in-out;
+	z-index: 0;
 }
 
-::ng-deep .carousel-control-prev:hover,
-::ng-deep .carousel-control-next:hover {
+.slide.active {
+	position: relative;
 	opacity: 1;
+	z-index: 1;
 }
 
-/* Hero motto animation (replaces ngx-typed-js) */
+.slide img {
+	display: block;
+	width: 100%;
+	height: 55vh;
+	object-fit: cover;
+}
+
+/* ── Caption overlay ── */
+.slide-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 1.5rem 2rem;
+	background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+	color: #fff;
+}
+
+.slide-caption h3 {
+	margin: 0 0 0.25rem;
+	font-size: 1.25rem;
+	font-weight: 600;
+}
+
+.slide-caption p {
+	margin: 0;
+	font-size: 0.95rem;
+	opacity: 0.9;
+}
+
+/* ── Prev / Next arrows ── */
+.slide-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 2;
+	background: rgba(0, 0, 0, 0.35);
+	color: #fff;
+	border: none;
+	font-size: 1.5rem;
+	padding: 0.75rem 1rem;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: background 0.25s;
+}
+
+.slide-arrow:hover {
+	background: rgba(0, 0, 0, 0.65);
+}
+
+.slide-arrow-prev {
+	left: 0.75rem;
+}
+
+.slide-arrow-next {
+	right: 0.75rem;
+}
+
+/* ── Indicator dots ── */
+.slide-indicators {
+	position: absolute;
+	bottom: 1rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 2;
+	display: flex;
+	gap: 0.5rem;
+}
+
+.slide-indicators button {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	border: 2px solid rgba(255, 255, 255, 0.8);
+	background: transparent;
+	cursor: pointer;
+	padding: 0;
+	transition: background 0.25s;
+}
+
+.slide-indicators button.active {
+	background: #fff;
+}
+
+/* ── Mobile tweaks ── */
+@media (max-width: 768px) {
+	.slide img {
+		height: 40vh;
+	}
+
+	.slide-caption {
+		padding: 1rem;
+	}
+
+	.slide-caption h3 {
+		font-size: 1rem;
+	}
+
+	.slide-caption p {
+		font-size: 0.85rem;
+	}
+
+	.slide-arrow {
+		font-size: 1.1rem;
+		padding: 0.5rem 0.75rem;
+	}
+}
+
+/* ── Hero motto animation ── */
 .typing-animation {
 	border-right: 2px solid currentColor;
 	animation:

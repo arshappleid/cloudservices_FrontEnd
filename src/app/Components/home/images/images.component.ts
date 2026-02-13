@@ -1,48 +1,71 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
-import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ConfigService } from '../../../services/config.service';
+
 @Component({
   selector: 'app-images',
   standalone: false,
   templateUrl: './images.component.html',
   styleUrls: ['./images.component.css']
 })
-export class ImagesComponent implements OnInit {
+export class ImagesComponent implements OnInit, OnDestroy {
   buisnessMoto: string[];
   heroSectionTitle: string;
   isMobile: boolean = false;
-  ngOnInit(): void {
-    // check for mobile
-    if (navigator.userAgent.match(/Android/i)
-         || navigator.userAgent.match(/webOS/i)
-         || navigator.userAgent.match(/iPhone/i)
-         || navigator.userAgent.match(/iPad/i)
-         || navigator.userAgent.match(/iPod/i)
-         || navigator.userAgent.match(/BlackBerry/i)
-         || navigator.userAgent.match(/Windows Phone/i)) {
-            this.isMobile = true ;
-         } else {
-            this.isMobile = false ;
-         }
-  }
-  /*
-  Package website : https://github.com/ivylaboratory/angular-carousel
-   */
+
   @Input() img_height: string | undefined;
   images_url: any[];
+  activeIndex = 0;
 
-  constructor(config: NgbCarouselConfig, private configService: ConfigService) {
-		// customize default values of carousels used by this component tree
-		config.interval = 8000;
-		config.wrap = false;
-		config.keyboard = true;
-		config.pauseOnHover = false;
+  private intervalId: ReturnType<typeof setInterval> | null = null;
+  private readonly autoPlayMs = 8000;
 
+  constructor(private configService: ConfigService) {
     const siteConfig = this.configService.getConfig();
     this.buisnessMoto = siteConfig.home.heroMotto;
     this.heroSectionTitle = siteConfig.home.heroSectionTitle;
     this.images_url = siteConfig.home.carousel;
   }
 
+  ngOnInit(): void {
+    // check for mobile
+    if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i)) {
+      this.isMobile = true;
+    }
+    this.startAutoPlay();
+  }
 
+  ngOnDestroy(): void {
+    this.stopAutoPlay();
+  }
+
+  next(): void {
+    this.activeIndex = (this.activeIndex + 1) % this.images_url.length;
+    this.restartAutoPlay();
+  }
+
+  prev(): void {
+    this.activeIndex = (this.activeIndex - 1 + this.images_url.length) % this.images_url.length;
+    this.restartAutoPlay();
+  }
+
+  goTo(index: number): void {
+    this.activeIndex = index;
+    this.restartAutoPlay();
+  }
+
+  private startAutoPlay(): void {
+    this.intervalId = setInterval(() => this.next(), this.autoPlayMs);
+  }
+
+  private stopAutoPlay(): void {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
+    }
+  }
+
+  private restartAutoPlay(): void {
+    this.stopAutoPlay();
+    this.startAutoPlay();
+  }
 }
