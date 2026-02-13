@@ -1,4 +1,4 @@
-<header style="background-color: rgb(114, 114, 120)">
+<header style="background-color: rgb(3, 140, 252)">
 	<nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
 		<div class="container text-white">
 			<a class="navbar-brand" [routerLink]="['/']">{{ companyName }}</a>
@@ -28,7 +28,9 @@
 							exact: link.route === '/'
 						}"
 					>
-						<a class="nav-link" [routerLink]="[link.route]">{{ link.label }}</a>
+						<a class="nav-link" [routerLink]="[link.route]">{{
+							link.label
+						}}</a>
 					</li>
 				</ul>
 			</div>

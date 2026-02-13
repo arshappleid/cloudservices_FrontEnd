@@ -12,7 +12,7 @@
 
 	"home": {
 		"heroMotto": [
-			"We help buisness to meet tough Security and Compliance requirements, with our cybersecurity expertise."
+			"Helping you be secure and compliant in cloud, so that you focus on your application."
 		],
 		"heroSectionTitle": "What we specialize in",
 
@@ -29,7 +29,7 @@
 			},
 			{
 				"path": "./assets/images/cloudsecurity-multi-clouds.png",
-				"label": "Cloud Deployment and Management",
+				"label": "Secure Cloud Deployment and Management",
 				"description": "We manage your cloud environment, so that you can focus on building your application."
 			}
 		],
@@ -39,42 +39,42 @@
 				"title": "Cloud Security Expertise",
 				"items": [
 					{
-						"url": "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg?auto=compress&cs=tinysrgb&w=600",
+						"url": "./assets/images/home/network_security.png",
 						"title": "Network Security",
 						"alt": "IT engineer configuring network security cables in a server rack",
 						"description": "From managing firewalls to implementing intrusion detection systems or SIEM tools, we ensure that your network is secure and protected against potential threats.",
 						"link": "#"
 					},
 					{
-						"url": "./assets/images/windows-linux.webp",
+						"url": "./assets/images/home/windows-linux.webp",
 						"title": "Operating System Security",
 						"alt": "IT engineer configuring network security cables in a server rack",
 						"description": "We can help you secure your operating systems, whether it's Windows, Linux, or macOS, by implementing best practices for patch management, access controls, and security configurations.",
 						"link": "#"
 					},
 					{
-						"url": "./assets/images/application_security.png",
+						"url": "./assets/images/home/application_security.png",
 						"title": "Application Security",
 						"alt": "IT engineer configuring network security cables in a server rack",
 						"description": "From implementing Authentication and Authorization tools, to ensuring secure secret management and key management, we can help you secure your applications and protect against potential vulnerabilities, all the way till memory based attacks.",
 						"link": "#"
 					},
 					{
-						"url": "./assets/images/iam_security.png",
+						"url": "./assets/images/home/iam_security.png",
 						"title": "Least Privelege IAM",
 						"alt": "Hand holding a secure USB key representing identity and access management",
 						"description": "Uncertain about how to manage user access and permissions in your cloud environment? Our team of experts can help you implement a least privilege IAM strategy, ensuring that users only have access to the resources they need to do their job, while minimizing the risk of unauthorized access.",
 						"link": "#"
 					},
 					{
-						"url": "./assets/images/employee_access_management.png",
+						"url": "./assets/images/home/employee_access_management.png",
 						"title": "Employee Access Management for Governance",
 						"alt": "Cybersecurity professional wearing an identification badge in a secure office",
 						"description": "Managing employee access to cloud resources is crucial for maintaining security and governance. Our team can help you implement an effective access management strategy, ensuring that employees have the appropriate level of access to cloud resources while minimizing the risk of unauthorized access or data breaches.",
 						"link": "#"
 					},
 					{
-						"url": "cloud_pentesting.jpg",
+						"url": "./assets/images/home/cloud_pentesting.jpg",
 						"title": "Cloud Penetration Testing",
 						"alt": "Security analyst performing penetration testing on a laptop in a dark environment",
 						"description": "Identify vulnerabilities in your cloud environment before attackers do. Our penetration testing services simulate real-world attacks to uncover weaknesses and provide actionable recommendations to enhance your security posture.",
@@ -103,7 +103,7 @@
 						"url": "https://images.pexels.com/photos/4597280/pexels-photo-4597280.jpeg?auto=compress&cs=tinysrgb&w=600",
 						"title": "Database Management",
 						"alt": "Secure server racks and hardware in a modern data center facility",
-						"description": "Create, Manage, Maintain databse , to support your applications.",
+						"description": "Our database management services ensure that your databases are secure, optimized, and compliant with industry standards. We can help you with database design, performance tuning, backup and recovery, and security configurations to protect your data from potential threats.",
 						"link": "#"
 					}
 				]
@@ -151,19 +151,19 @@
 			{
 				"name": "New Cloud Environment Setup",
 				"description": "We can help you set up a new cloud environment (AWS/Azure/GCP) that meets your specific needs and requirements. Either it is setting up a database or setting up a secure network architecture, we can help you with it.",
-				"img_url": "./assets/images/aws_demo_env.png",
+				"img_url": "./assets/images/services/aws_demo_env.png",
 				"pricing": "Starting at $2,000 / project"
 			},
 			{
 				"name": "Microsoft 365 Administration",
 				"description": "We provide comprehensive Microsoft 365 administration services to help you manage and optimize your Microsoft 365 environment. Our team of experts can assist with user management,device enrollment (Windows,MacOs IOS, Android) security configurations, application integration, and ongoing support to ensure that your Microsoft 365 environment runs smoothly and efficiently.",
-				"img_url": "./assets/images/microsoft_365_admin.png",
+				"img_url": "./assets/images/services/microsoft_365_admin.png",
 				"pricing": "Starting at $500 / month for 15 hours of support"
 			},
 			{
 				"name": "Compliance Meeting",
 				"description": "Our company provides a full project completion service for website development, including consultation, design, coding, testing, and deployment. They aim to make the process hassle-free for their clients. Additionally, they offer maintenance services to keep the website up-to-date and functioning optimally, addressing issues, updating content, and making necessary changes.",
-				"img_url": "./assets/images/soc_hipaa.tiff",
+				"img_url": "./assets/images/services/soc_hipaa.tiff",
 				"pricing": "$50 / hour"
 			},
 			{
@@ -171,6 +171,12 @@
 				"description": "Looking to complete your business software project quickly and efficiently? We specialize in helping businesses complete their software projects on a contract basis, offering expert assistance in niche areas to ensure your project is completed on time and on budget. With our years of experience and commitment to quality, you can trust us to deliver top-notch results that meet your specific needs. So why wait? Contact us today to get started on your next project",
 				"img_url": "./assets/images/booked.svg",
 				"pricing": "Starting at $2,000 / audit"
+			},
+			{
+				"name": "Growing Startup with Varied Needs",
+				"description": "We offer Competitive pricing for startups, with a standard Three-Tier Web App with CICD from $300. Does not include Database Management. We get you started with a secure cloud environment, so that when you scale, you know who to choose to help you with your cloud security and compliance needs.",
+				"img_url": "./assets/images/services/startup-pricing.jpg",
+				"pricing": "$300"
 			}
 		]
 	},
