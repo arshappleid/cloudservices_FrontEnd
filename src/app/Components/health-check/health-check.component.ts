@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-health-check',
+  standalone: false,
   template: `<pre>{{ healthStatus | json }}</pre>`,
 })
 export class HealthCheckComponent {

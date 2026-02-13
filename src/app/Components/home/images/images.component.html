@@ -1,13 +1,7 @@
 <div>
 	<!--Web App-->
 	<div class="text-center text-primary mb-2">
-		<ngx-typed-js
-			[strings]="buisnessMoto"
-			[typeSpeed]="25"
-			[showCursor]="true"
-		>
-			<h3 class="typing"></h3>
-		</ngx-typed-js>
+		<h3 class="typing-animation">{{ buisnessMoto[0] }}</h3>
 	</div>
 	<h4 class="text-center mb-3 text-secondary">{{ heroSectionTitle }}</h4>
 	<div *ngIf="!isMobile">
@@ -19,10 +13,9 @@
 							[src]="images_url[0].path"
 							style="
 								display: block;
-								width: 75vh;
+								width: 100%;
 								margin: 0 auto;
-								height: 60em;
-								max-height: 60vh;
+								height: 60vh;
 								object-fit: cover;
 							"
 							alt="{{ images_url[0].label }}"
@@ -41,10 +34,9 @@
 							[src]="images_url[1].path"
 							style="
 								display: block;
-								width: 75vh;
+								width: 100%;
 								margin: 0 auto;
-								height: 60em;
-								max-height: 60vh;
+								height: 60vh;
 								object-fit: cover;
 							"
 							alt="{{ images_url[1].label }}"
@@ -63,10 +55,9 @@
 							[src]="images_url[2].path"
 							style="
 								display: block;
-								width: 75vh;
+								width: 100%;
 								margin: 0 auto;
-								height: 60em;
-								max-height: 60vh;
+								height: 60vh;
 								object-fit: cover;
 							"
 							alt="{{ images_url[2].label }}"

@@ -4,6 +4,7 @@ import { SiteConfig } from '../../services/config.model';
 
 @Component({
   selector: 'app-nav-menu',
+  standalone: false,
   templateUrl: './nav-menu.component.html',
   styleUrls: ['./nav-menu.component.css',"./../../../../node_modules/bootstrap-icons/font/bootstrap-icons.css"]
 })

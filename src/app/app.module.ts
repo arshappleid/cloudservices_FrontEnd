@@ -1,6 +1,4 @@
-
 import { NgModule } from '@angular/core';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Custom Components
@@ -11,19 +9,18 @@ import { NavMenuComponent } from './Components/nav-menu/nav-menu.component';
 import { HomeComponent } from './Components/home/home.component';
 import { SharedModule } from 'src/app/Components/shared/shared.module';
 import { FooterModule } from './footer/footer.module';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { TeamComponent } from './Components/team/team.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { FeatureDevlopmentComponent } from './Components/home/feature-devlopment/feature-devlopment.component';
-import { NgxTypedJsModule } from 'ngx-typed-js';
 import { ServicesComponent } from './Components/services/services.component';
 import { TestimonialsComponent } from './Components/testimonials/testimonials.component';
 import { CaseStudiesComponent } from './Components/case-studies/case-studies.component';
@@ -49,53 +46,43 @@ export function initializeApp(configService: ConfigService) {
     CaseStudiesComponent,
     HealthCheckComponent,
   ],
+  bootstrap: [AppComponent],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserModule,
     RouterModule.forRoot([
-      // App routing module
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'contact', component: ContactComponent },
-      { path: 'services', component:  ServicesComponent},
+      { path: 'services', component: ServicesComponent },
       { path: 'case-studies', component: CaseStudiesComponent },
       { path: 'testimonials', component: TestimonialsComponent },
       { path: 'team', component: TeamComponent },
       { path: 'health', component: HealthCheckComponent },
     ]),
-    RouterModule,
-    HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    // angular material modules
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     // other imports
     SharedModule,
     FooterModule,
-    FormsModule,
-    ReactiveFormsModule,
+    // Angular Material modules
     MatNativeDateModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatFormFieldModule,
     MatInputModule,
-    MatNativeDateModule,
     MatButtonModule,
     MatSelectModule,
-    //NGB Bootstrap Modules,
+    // ng-bootstrap
     NgbCarouselModule,
-    NgxTypedJsModule,
-
   ],
   providers: [
     {
       provide: APP_INITIALIZER,
       useFactory: initializeApp,
       deps: [ConfigService],
-      multi: true
-    }
+      multi: true,
+    },
+    provideHttpClient(withInterceptorsFromDi()),
   ],
-  bootstrap: [AppComponent],
-  schemas:[]
 })
-export class AppModule { }
+export class AppModule {}
 

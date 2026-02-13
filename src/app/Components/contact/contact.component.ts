@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 import { ConfigService } from '../../services/config.service';
 @Component({
   selector: 'app-contact',
+  standalone: false,
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })

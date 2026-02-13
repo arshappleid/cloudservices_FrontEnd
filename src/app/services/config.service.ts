@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 import { SiteConfig } from './config.model';
 
 @Injectable({
@@ -10,13 +11,9 @@ export class ConfigService {
 
   constructor(private http: HttpClient) {}
 
-  loadConfig(): Promise<void> {
-    return this.http
-      .get<SiteConfig>('/assets/config.json')
-      .toPromise()
-      .then((data) => {
-        this.config = data!;
-      });
+  async loadConfig(): Promise<void> {
+    const data = await firstValueFrom(this.http.get<SiteConfig>('/assets/config.json'));
+    this.config = data;
   }
 
   getConfig(): SiteConfig {

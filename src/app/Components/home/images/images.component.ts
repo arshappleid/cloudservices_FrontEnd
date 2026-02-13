@@ -3,6 +3,7 @@ import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 import { ConfigService } from '../../../services/config.service';
 @Component({
   selector: 'app-images',
+  standalone: false,
   templateUrl: './images.component.html',
   styleUrls: ['./images.component.css']
 })

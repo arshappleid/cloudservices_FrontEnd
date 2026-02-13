@@ -2,6 +2,7 @@ import { Input, Component } from '@angular/core';
 
 @Component({
   selector: 'input-text',
+  standalone: false,
   templateUrl: './text.component.html',
   styleUrls: ['./text.component.css']
 })

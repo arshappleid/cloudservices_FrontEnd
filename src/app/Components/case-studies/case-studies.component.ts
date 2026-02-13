@@ -3,6 +3,7 @@ import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'app-case-studies',
+  standalone: false,
   templateUrl: './case-studies.component.html',
   styleUrls: ['./case-studies.component.css']
 })

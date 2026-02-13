@@ -3,6 +3,7 @@ import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'app-testimonials',
+  standalone: false,
   templateUrl: './testimonials.component.html',
   styleUrls: ['./testimonials.component.css']
 })

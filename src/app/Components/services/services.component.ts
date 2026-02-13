@@ -3,6 +3,7 @@ import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'app-services',
+  standalone: false,
   templateUrl: './services.component.html'
 })
 export class ServicesComponent implements OnInit{

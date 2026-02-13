@@ -3,6 +3,7 @@ import { ConfigService } from '../../../services/config.service';
 
 @Component({
   selector: 'data-services',
+  standalone: false,
   templateUrl: './data-services.component.html',
   styleUrls: ['./data-services.component.css']
 })

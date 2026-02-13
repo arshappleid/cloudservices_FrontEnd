@@ -3,6 +3,7 @@ import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'footer',
+  standalone: false,
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })

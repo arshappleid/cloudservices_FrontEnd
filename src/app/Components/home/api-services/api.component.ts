@@ -3,6 +3,7 @@ import { ConfigService } from '../../../services/config.service';
 
 @Component({
   selector: 'api-examples',
+  standalone: false,
   templateUrl: './api.component.html',
   styleUrls: ['./api.component.css']
 })

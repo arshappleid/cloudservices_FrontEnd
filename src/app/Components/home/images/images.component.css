@@ -1,6 +1,21 @@
+:host {
+	display: block;
+}
+
 ::ng-deep .carousel-control-prev-icon,
 ::ng-deep .carousel-control-next-icon {
 	filter: invert(30%);
+}
+
+::ng-deep .picsum-img-wrapper {
+	display: block;
+}
+
+::ng-deep .picsum-img-wrapper img {
+	width: 100%;
+	height: 60vh;
+	object-fit: cover;
+	display: block;
 }
 
 ::ng-deep .carousel-control-prev,
@@ -11,4 +26,34 @@
 ::ng-deep .carousel-control-prev:hover,
 ::ng-deep .carousel-control-next:hover {
 	opacity: 1;
+}
+
+/* Hero motto animation (replaces ngx-typed-js) */
+.typing-animation {
+	border-right: 2px solid currentColor;
+	animation:
+		fadeIn 1.5s ease-in forwards,
+		blink-caret 0.75s step-end 6;
+	max-width: 800px;
+	margin: 0 auto;
+	line-height: 1.4;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes blink-caret {
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: currentColor;
+	}
 }

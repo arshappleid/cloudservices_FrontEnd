@@ -3,6 +3,7 @@ import { ConfigService } from '../../../services/config.service';
 
 @Component({
   selector: 'app-feature-devlopment',
+  standalone: false,
   templateUrl: './feature-devlopment.component.html',
   styleUrls: ['./feature-devlopment.component.css']
 })
