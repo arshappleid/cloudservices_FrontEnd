@@ -1,130 +1,128 @@
 <!--Web App-->
-<div *ngIf="!isMobile">
-	<h2 class="text-dark">{{ pageTitle }}</h2>
-	<br />
-
-	<!--Card 1-->
-	<div class="row border-bottom p-4 m-2">
-		<div class="col-4">
-			<img
-				src="{{ services[0].img_url }}"
-				style="max-width: 100%; max-height: 100%"
-				alt="C{{ services[0].name }}"
-			/>
-		</div>
-		<div class="col p-4 text-center">
-			<h3 class="text-dark" style="font-family: 'Lato', sans-serif">
-				<u>{{ services[0].name }}</u>
-			</h3>
-			<p class="text-dark">{{ services[0].description }}</p>
-			<span class="badge bg-primary mt-3" style="font-size: 1.1rem">{{
-				services[0].pricing
-			}}</span>
-		</div>
-	</div>
-
-	<!--Card 2-->
-	<div class="row border-bottom p-4 m-2 mt-4">
-		<div class="col-4">
-			<img
-				src="{{ services[1].img_url }}"
-				style="max-width: 100%; max-height: 100%"
-				alt="C{{ services[1].name }}"
-			/>
-		</div>
-		<div class="col p-4 text-center">
-			<h3 class="text-dark" style="font-family: 'Lato', sans-serif">
-				<u>{{ services[1].name }}</u>
-			</h3>
-			<p class="text-dark">{{ services[1].description }}</p>
-			<span class="badge bg-primary mt-3" style="font-size: 1.1rem">{{
-				services[1].pricing
-			}}</span>
-		</div>
-	</div>
-
-	<!--Card 2-->
-	<div class="row p-4 m-2 mt-4">
-		<div class="col-4">
-			<img
-				src="{{ services[2].img_url }}"
-				style="max-width: 100%; max-height: 100%"
-				alt="C{{ services[2].name }}"
-			/>
-		</div>
-		<div class="col p-4 text-center">
-			<h3 class="text-dark" style="font-family: 'Lato', sans-serif">
-				<u>{{ services[2].name }}</u>
-			</h3>
-			<p class="text-dark">{{ services[2].description }}</p>
-			<span class="badge bg-primary mt-3" style="font-size: 1.1rem">{{
-				services[2].pricing
-			}}</span>
-		</div>
-	</div>
-</div>
+@if (!isMobile) {
+  <div>
+    <h2 class="text-dark">{{ pageTitle }}</h2>
+    <br />
+    <!--Card 1-->
+    <div class="row border-bottom p-4 m-2">
+      <div class="col-4">
+        <img
+          src="{{ services[0].img_url }}"
+          style="max-width: 100%; max-height: 100%"
+          alt="C{{ services[0].name }}"
+          />
+      </div>
+      <div class="col p-4 text-center">
+        <h3 class="text-dark" style="font-family: 'Lato', sans-serif">
+          <u>{{ services[0].name }}</u>
+        </h3>
+        <p class="text-dark">{{ services[0].description }}</p>
+        <span class="badge bg-primary mt-3" style="font-size: 1.1rem">{{
+          services[0].pricing
+        }}</span>
+      </div>
+    </div>
+    <!--Card 2-->
+    <div class="row border-bottom p-4 m-2 mt-4">
+      <div class="col-4">
+        <img
+          src="{{ services[1].img_url }}"
+          style="max-width: 100%; max-height: 100%"
+          alt="C{{ services[1].name }}"
+          />
+      </div>
+      <div class="col p-4 text-center">
+        <h3 class="text-dark" style="font-family: 'Lato', sans-serif">
+          <u>{{ services[1].name }}</u>
+        </h3>
+        <p class="text-dark">{{ services[1].description }}</p>
+        <span class="badge bg-primary mt-3" style="font-size: 1.1rem">{{
+          services[1].pricing
+        }}</span>
+      </div>
+    </div>
+    <!--Card 2-->
+    <div class="row p-4 m-2 mt-4">
+      <div class="col-4">
+        <img
+          src="{{ services[2].img_url }}"
+          style="max-width: 100%; max-height: 100%"
+          alt="C{{ services[2].name }}"
+          />
+      </div>
+      <div class="col p-4 text-center">
+        <h3 class="text-dark" style="font-family: 'Lato', sans-serif">
+          <u>{{ services[2].name }}</u>
+        </h3>
+        <p class="text-dark">{{ services[2].description }}</p>
+        <span class="badge bg-primary mt-3" style="font-size: 1.1rem">{{
+          services[2].pricing
+        }}</span>
+      </div>
+    </div>
+  </div>
+}
 <!--Mobile App-->
-<div *ngIf="isMobile">
-	<h2 class="text-dark text-center">{{ pageTitleMobile }}</h2>
-	<br />
-
-	<!--Card 1-->
-	<div class="row border-bottom p-3 mt-2">
-		<div class="row-4">
-			<img
-				src="{{ services[0].img_url }}"
-				style="max-width: 100%; max-height: 100%"
-				alt="C{{ services[0].name }}"
-			/>
-		</div>
-		<div class="row text-center">
-			<h3 class="text-dark" style="font-family: 'Lato', sans-serif">
-				<u>{{ services[0].name }}</u>
-			</h3>
-			<p class="text-dark">{{ services[0].description }}</p>
-			<span class="badge bg-primary mt-3" style="font-size: 1.1rem">{{
-				services[0].pricing
-			}}</span>
-		</div>
-	</div>
-
-	<!--Card 2-->
-	<div class="row border-bottom p-3 m-2 mt-4">
-		<div class="row-4">
-			<img
-				src="{{ services[1].img_url }}"
-				style="max-width: 100%; max-height: 100%"
-				alt="C{{ services[1].name }}"
-			/>
-		</div>
-		<div class="row text-center">
-			<h3 class="text-dark" style="font-family: 'Lato', sans-serif">
-				<u>{{ services[1].name }}</u>
-			</h3>
-			<p class="text-dark">{{ services[1].description }}</p>
-			<span class="badge bg-primary mt-3" style="font-size: 1.1rem">{{
-				services[1].pricing
-			}}</span>
-		</div>
-	</div>
-
-	<!--Card 2-->
-	<div class="row p-3 m-2 mt-4">
-		<div class="row-4">
-			<img
-				src="{{ services[2].img_url }}"
-				style="max-width: 100%; max-height: 100%"
-				alt="C{{ services[2].name }}"
-			/>
-		</div>
-		<div class="text-center mt-2">
-			<h3 class="text-dark" style="font-family: 'Lato', sans-serif">
-				<u>{{ services[2].name }}</u>
-			</h3>
-			<p class="text-dark">{{ services[2].description }}</p>
-			<span class="badge bg-primary mt-3" style="font-size: 1.1rem">{{
-				services[2].pricing
-			}}</span>
-		</div>
-	</div>
-</div>
+@if (isMobile) {
+  <div>
+    <h2 class="text-dark text-center">{{ pageTitleMobile }}</h2>
+    <br />
+    <!--Card 1-->
+    <div class="row border-bottom p-3 mt-2">
+      <div class="row-4">
+        <img
+          src="{{ services[0].img_url }}"
+          style="max-width: 100%; max-height: 100%"
+          alt="C{{ services[0].name }}"
+          />
+      </div>
+      <div class="row text-center">
+        <h3 class="text-dark" style="font-family: 'Lato', sans-serif">
+          <u>{{ services[0].name }}</u>
+        </h3>
+        <p class="text-dark">{{ services[0].description }}</p>
+        <span class="badge bg-primary mt-3" style="font-size: 1.1rem">{{
+          services[0].pricing
+        }}</span>
+      </div>
+    </div>
+    <!--Card 2-->
+    <div class="row border-bottom p-3 m-2 mt-4">
+      <div class="row-4">
+        <img
+          src="{{ services[1].img_url }}"
+          style="max-width: 100%; max-height: 100%"
+          alt="C{{ services[1].name }}"
+          />
+      </div>
+      <div class="row text-center">
+        <h3 class="text-dark" style="font-family: 'Lato', sans-serif">
+          <u>{{ services[1].name }}</u>
+        </h3>
+        <p class="text-dark">{{ services[1].description }}</p>
+        <span class="badge bg-primary mt-3" style="font-size: 1.1rem">{{
+          services[1].pricing
+        }}</span>
+      </div>
+    </div>
+    <!--Card 2-->
+    <div class="row p-3 m-2 mt-4">
+      <div class="row-4">
+        <img
+          src="{{ services[2].img_url }}"
+          style="max-width: 100%; max-height: 100%"
+          alt="C{{ services[2].name }}"
+          />
+      </div>
+      <div class="text-center mt-2">
+        <h3 class="text-dark" style="font-family: 'Lato', sans-serif">
+          <u>{{ services[2].name }}</u>
+        </h3>
+        <p class="text-dark">{{ services[2].description }}</p>
+        <span class="badge bg-primary mt-3" style="font-size: 1.1rem">{{
+          services[2].pricing
+        }}</span>
+      </div>
+    </div>
+  </div>
+}

@@ -1,61 +1,65 @@
 <!--Web App-->
-<div *ngIf="!isMobile">
-	<h2 class="text-dark">{{ pageTitle }}</h2>
-	<br />
-
-	<div
-		*ngFor="let item of testimonials; let i = index; let last = last"
-		class="row p-4 m-2"
-		[class.border-bottom]="!last"
-		[class.mt-4]="i > 0">
-		<div class="col p-4">
-			<div class="d-flex align-items-center mb-3">
-				<div
-					class="rounded-circle bg-primary text-light d-flex align-items-center justify-content-center me-3"
-					style="width: 50px; height: 50px; font-size: 1.2rem">
-					{{ item.clientName.charAt(0) }}
-				</div>
-				<div>
-					<h4
-						class="text-dark mb-0"
-						style="font-family: 'Lato', sans-serif">
-						{{ item.clientName }}
-					</h4>
-					<small class="text-secondary">{{ item.company }}</small>
-				</div>
-			</div>
-			<p class="text-dark fst-italic" style="font-size: 1.05rem">
-				"{{ item.testimonial }}"
-			</p>
-		</div>
-	</div>
-</div>
+@if (!isMobile) {
+  <div>
+    <h2 class="text-dark">{{ pageTitle }}</h2>
+    <br />
+    @for (item of testimonials; track item; let i = $index; let last = $last) {
+      <div
+        class="row p-4 m-2"
+        [class.border-bottom]="!last"
+        [class.mt-4]="i > 0">
+        <div class="col p-4">
+          <div class="d-flex align-items-center mb-3">
+            <div
+              class="rounded-circle bg-primary text-light d-flex align-items-center justify-content-center me-3"
+              style="width: 50px; height: 50px; font-size: 1.2rem">
+              {{ item.clientName.charAt(0) }}
+            </div>
+            <div>
+              <h4
+                class="text-dark mb-0"
+                style="font-family: 'Lato', sans-serif">
+                {{ item.clientName }}
+              </h4>
+              <small class="text-secondary">{{ item.company }}</small>
+            </div>
+          </div>
+          <p class="text-dark fst-italic" style="font-size: 1.05rem">
+            "{{ item.testimonial }}"
+          </p>
+        </div>
+      </div>
+    }
+  </div>
+}
 
 <!--Mobile App-->
-<div *ngIf="isMobile">
-	<h2 class="text-dark text-center">{{ pageTitleMobile }}</h2>
-	<br />
-
-	<div
-		*ngFor="let item of testimonials; let i = index; let last = last"
-		class="row p-3 m-2"
-		[class.border-bottom]="!last"
-		[class.mt-3]="i > 0">
-		<div class="text-center">
-			<div
-				class="rounded-circle bg-primary text-light d-flex align-items-center justify-content-center mx-auto mb-2"
-				style="width: 45px; height: 45px; font-size: 1.1rem">
-				{{ item.clientName.charAt(0) }}
-			</div>
-			<h5
-				class="text-dark mb-0"
-				style="font-family: 'Lato', sans-serif">
-				{{ item.clientName }}
-			</h5>
-			<small class="text-secondary">{{ item.company }}</small>
-			<p class="text-dark fst-italic mt-2">
-				"{{ item.testimonial }}"
-			</p>
-		</div>
-	</div>
-</div>
+@if (isMobile) {
+  <div>
+    <h2 class="text-dark text-center">{{ pageTitleMobile }}</h2>
+    <br />
+    @for (item of testimonials; track item; let i = $index; let last = $last) {
+      <div
+        class="row p-3 m-2"
+        [class.border-bottom]="!last"
+        [class.mt-3]="i > 0">
+        <div class="text-center">
+          <div
+            class="rounded-circle bg-primary text-light d-flex align-items-center justify-content-center mx-auto mb-2"
+            style="width: 45px; height: 45px; font-size: 1.1rem">
+            {{ item.clientName.charAt(0) }}
+          </div>
+          <h5
+            class="text-dark mb-0"
+            style="font-family: 'Lato', sans-serif">
+            {{ item.clientName }}
+          </h5>
+          <small class="text-secondary">{{ item.company }}</small>
+          <p class="text-dark fst-italic mt-2">
+            "{{ item.testimonial }}"
+          </p>
+        </div>
+      </div>
+    }
+  </div>
+}

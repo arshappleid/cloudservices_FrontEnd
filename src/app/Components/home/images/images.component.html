@@ -1,41 +1,43 @@
 <div>
-	<!-- Hero motto -->
-	<div class="text-center text-primary mb-2">
-		<h3 class="typing-animation">{{ buisnessMoto[0] }}</h3>
-	</div>
-	<h4 class="text-center mb-3 text-secondary">{{ heroSectionTitle }}</h4>
+  <!-- Hero motto -->
+  <div class="text-center text-primary mb-2">
+    <h3 class="typing-animation">{{ buisnessMoto[0] }}</h3>
+  </div>
+  <h4 class="text-center mb-3 text-secondary">{{ heroSectionTitle }}</h4>
 
-	<!-- Slideshow -->
-	<div class="slideshow" *ngIf="images_url && images_url.length">
-		<!-- Slides -->
-		<div
-			class="slide"
-			*ngFor="let slide of images_url; let i = index"
-			[class.active]="i === activeIndex"
-		>
-			<img [src]="slide.path" [alt]="slide.label" />
-			<div class="slide-caption">
-				<h3>{{ slide.label }}</h3>
-				<p>{{ slide.description }}</p>
-			</div>
-		</div>
-
-		<!-- Prev / Next arrows -->
-		<button class="slide-arrow slide-arrow-prev" (click)="prev()" aria-label="Previous slide">
-			&#10094;
-		</button>
-		<button class="slide-arrow slide-arrow-next" (click)="next()" aria-label="Next slide">
-			&#10095;
-		</button>
-
-		<!-- Indicator dots -->
-		<div class="slide-indicators">
-			<button
-				*ngFor="let slide of images_url; let i = index"
-				[class.active]="i === activeIndex"
-				(click)="goTo(i)"
-				[attr.aria-label]="'Go to slide ' + (i + 1)"
-			></button>
-		</div>
-	</div>
+  <!-- Slideshow -->
+  @if (images_url && images_url.length) {
+    <div class="slideshow">
+      <!-- Slides -->
+      @for (slide of images_url; track slide; let i = $index) {
+        <div
+          class="slide"
+          [class.active]="i === activeIndex"
+          >
+          <img [src]="slide.path" [alt]="slide.label" />
+          <div class="slide-caption">
+            <h3>{{ slide.label }}</h3>
+            <p>{{ slide.description }}</p>
+          </div>
+        </div>
+      }
+      <!-- Prev / Next arrows -->
+      <button class="slide-arrow slide-arrow-prev" (click)="prev()" aria-label="Previous slide">
+        &#10094;
+      </button>
+      <button class="slide-arrow slide-arrow-next" (click)="next()" aria-label="Next slide">
+        &#10095;
+      </button>
+      <!-- Indicator dots -->
+      <div class="slide-indicators">
+        @for (slide of images_url; track slide; let i = $index) {
+          <button
+            [class.active]="i === activeIndex"
+            (click)="goTo(i)"
+            [attr.aria-label]="'Go to slide ' + (i + 1)"
+          ></button>
+        }
+      </div>
+    </div>
+  }
 </div>

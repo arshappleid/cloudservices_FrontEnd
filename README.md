@@ -18,6 +18,12 @@ Edit this file to update any text shown on the site — no code changes required
 |---|---|---|
 | `companyName` | Company name shown in navbar & footer | — |
 | `backendEndpoint` | Backend API URL | — |
+| `theme` | Global color theme for the entire app (applied at runtime as CSS custom properties). Colors are referenced in templates via utility classes defined in `styles.css`. | `backgroundColor`, `cardBackgroundColor`, `navBackgroundColor`, `accentColor`, `textColor` |
+| `theme.backgroundColor` | Main page/body background color used across every page | Any CSS color, e.g. `"#f5f5f5"` |
+| `theme.cardBackgroundColor` | Background for cards, forms, and content sections (class `.app-bg-card`) | Any CSS color, e.g. `"#e9e9e9"` |
+| `theme.navBackgroundColor` | Navigation bar header background (class `.app-bg-nav`) | Any CSS color, e.g. `"#038cfc"` |
+| `theme.accentColor` | Accent color for CTA / booking buttons (class `.app-bg-accent`) | Any CSS color, e.g. `"#0078D4"` |
+| `theme.textColor` | Default body text color | Any CSS color, e.g. `"#212529"` |
 | `navLinks` | Navigation bar links | `label`, `route` |
 | `home.heroMotto` | Animated typing text on the home page | Array of strings |
 | `home.heroSectionTitle` | Heading above the carousel ("What we specialize in") | — |

@@ -1,252 +1,260 @@
 <div class="container py-4">
-	<h3 class="text-dark mb-4 text-center" style="font-family: 'Lato', sans-serif">{{ pageTitle }}</h3>
+  <h3 class="text-dark mb-4 text-center" style="font-family: 'Lato', sans-serif">{{ pageTitle }}</h3>
 
-	<!-- Desktop -->
-	<div *ngIf="!isMobile">
-		<form
-			[formGroup]="contactForm"
-			class="p-5 rounded shadow-sm mx-auto"
-			style="background-color: rgb(243, 243, 243); max-width: 900px">
+  <!-- Desktop -->
+  @if (!isMobile) {
+    <div>
+      <form
+        [formGroup]="contactForm"
+        class="p-5 rounded shadow-sm mx-auto app-bg-card"
+        style="max-width: 900px">
+        <!-- Section: Personal Info -->
+        <h6 class="text-secondary text-uppercase fw-bold mb-3">
+          <i class="fas fa-user me-2"></i>Your Information
+        </h6>
+        <div class="row g-3">
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>{{ labels.name }}</mat-label>
+            <input matInput formControlName="name" />
+          </mat-form-field>
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>{{ labels.email }}</mat-label>
+            <input matInput formControlName="email" />
+            @if (contactForm.get('email')?.errors?.['email']) {
+              <mat-error>
+                {{ labels.emailError }}
+              </mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field class="col-md-4" appearance="outline">
+            <mat-label>{{ labels.contactNumber }}</mat-label>
+            <input matInput type="tel" formControlName="contact_number" />
+            @if (contactForm.get('contact_number')?.errors) {
+              <mat-error>
+                {{ labels.contactNumberError }}
+              </mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <!-- Section: Project Details -->
+        <h6 class="text-secondary text-uppercase fw-bold mb-3 mt-4">
+          <i class="fas fa-clipboard me-2"></i>Project Details
+        </h6>
+        <div class="row">
+          <mat-form-field class="col-12" appearance="outline">
+            <mat-label>{{ labels.projectDescription }}</mat-label>
+            <textarea matInput formControlName="project_description" rows="4"></textarea>
+          </mat-form-field>
+        </div>
+        <!-- Section: Callback Scheduling -->
+        <div class="text-center mt-4 mb-4">
+          <button
+            mat-stroked-button
+            type="button"
+            [class]="showDatePicker ? 'text-danger' : 'text-info'"
+            (click)="toggleDatePicker()">
+            <i [class]="showDatePicker ? 'fas fa-times me-2' : 'fas fa-calendar-alt me-2'"></i>
+            {{ showDatePicker ? 'Remove Call Back Date' : labels.chooseCallBackDate }}
+          </button>
+        </div>
+        @if (showDatePicker) {
+          <div class="row g-3 mb-4 mt-2 p-4 rounded app-bg-card">
+            <h6 class="text-secondary text-uppercase fw-bold mb-3">
+              <i class="fas fa-clock me-2"></i>Schedule a Callback
+            </h6>
+            <mat-form-field class="col-md-4 mt-2" appearance="outline">
+              <mat-label>{{ labels.chooseDate }}</mat-label>
+              <input
+                matInput
+                formControlName="contact_back_Date"
+                [matDatepickerFilter]="myFilter"
+                [matDatepicker]="picker" />
+              <mat-hint>{{ labels.dateHint }}</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="col-md-4 mt-2" appearance="outline">
+              <mat-label>Callback Time</mat-label>
+              <mat-select formControlName="callback_time">
+                @for (slot of timeSlots; track slot) {
+                  <mat-option [value]="slot">{{ slot }}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            <div class="col-md-4 d-flex align-items-center">
+              <span class="badge bg-secondary py-2 px-3">EST (Eastern Standard Time)</span>
+            </div>
+          </div>
+        }
+        <!-- Action Buttons -->
+        <div class="d-flex justify-content-center gap-3 mt-4">
+          <button
+            mat-raised-button
+            type="reset"
+            class="bg-danger text-light px-4"
+            (click)="resetForm()">
+            <i class="fas fa-undo me-1"></i> {{ labels.resetButton }}
+          </button>
+          <button
+            mat-raised-button
+            type="submit"
+            class="bg-primary text-light px-4"
+            (click)="submitrequest()"
+            [disabled]="contactForm.invalid">
+            <i class="fas fa-paper-plane me-1"></i> {{ labels.submitButton }}
+          </button>
+        </div>
+        <!-- Schedule Free Consultation -->
+        <div class="text-center mt-4">
+          <a
+            [href]="bookingLink"
+            target="_blank"
+            rel="noopener noreferrer"
+            mat-raised-button
+            class="text-light px-5 py-2 app-bg-accent"
+            style="font-size: 1.05rem">
+            <i class="fas fa-calendar-check me-2"></i>{{ bookingButtonText }}
+          </a>
+        </div>
+        <!-- Feedback Alerts -->
+        @if (submitSuccess) {
+          <div class="alert alert-success mt-4 text-center" role="alert">
+            <i class="fas fa-check-circle me-2"></i>Thank you! Your message has been sent. We will get back to you shortly.
+          </div>
+        }
+        @if (submitError) {
+          <div class="alert alert-danger mt-4 text-center" role="alert">
+            <i class="fas fa-exclamation-circle me-2"></i>Sorry, something went wrong. Please try again or email us directly at
+            <a href="mailto:contact@cloudcompliant.solutions">contact&#64;cloudcompliant.solutions</a>
+          </div>
+        }
+      </form>
+    </div>
+  }
 
-			<!-- Section: Personal Info -->
-			<h6 class="text-secondary text-uppercase fw-bold mb-3">
-				<i class="fas fa-user me-2"></i>Your Information
-			</h6>
-			<div class="row g-3">
-				<mat-form-field class="col-md-4" appearance="outline">
-					<mat-label>{{ labels.name }}</mat-label>
-					<input matInput formControlName="name" />
-				</mat-form-field>
-
-				<mat-form-field class="col-md-4" appearance="outline">
-					<mat-label>{{ labels.email }}</mat-label>
-					<input matInput formControlName="email" />
-					<mat-error *ngIf="contactForm.get('email')?.errors?.['email']">
-						{{ labels.emailError }}
-					</mat-error>
-				</mat-form-field>
-
-				<mat-form-field class="col-md-4" appearance="outline">
-					<mat-label>{{ labels.contactNumber }}</mat-label>
-					<input matInput type="tel" formControlName="contact_number" />
-					<mat-error *ngIf="contactForm.get('contact_number')?.errors">
-						{{ labels.contactNumberError }}
-					</mat-error>
-				</mat-form-field>
-			</div>
-
-			<!-- Section: Project Details -->
-			<h6 class="text-secondary text-uppercase fw-bold mb-3 mt-4">
-				<i class="fas fa-clipboard me-2"></i>Project Details
-			</h6>
-			<div class="row">
-				<mat-form-field class="col-12" appearance="outline">
-					<mat-label>{{ labels.projectDescription }}</mat-label>
-					<textarea matInput formControlName="project_description" rows="4"></textarea>
-				</mat-form-field>
-			</div>
-
-			<!-- Section: Callback Scheduling -->
-			<div class="text-center mt-4 mb-4">
-				<button
-					mat-stroked-button
-					type="button"
-					[class]="showDatePicker ? 'text-danger' : 'text-info'"
-					(click)="toggleDatePicker()">
-					<i [class]="showDatePicker ? 'fas fa-times me-2' : 'fas fa-calendar-alt me-2'"></i>
-					{{ showDatePicker ? 'Remove Call Back Date' : labels.chooseCallBackDate }}
-				</button>
-			</div>
-
-			<div *ngIf="showDatePicker" class="row g-3 mb-4 mt-2 p-4 rounded" style="background-color: rgb(233, 233, 233)">
-				<h6 class="text-secondary text-uppercase fw-bold mb-3">
-					<i class="fas fa-clock me-2"></i>Schedule a Callback
-				</h6>
-				<mat-form-field class="col-md-4 mt-2" appearance="outline">
-					<mat-label>{{ labels.chooseDate }}</mat-label>
-					<input
-						matInput
-						formControlName="contact_back_Date"
-						[matDatepickerFilter]="myFilter"
-						[matDatepicker]="picker" />
-					<mat-hint>{{ labels.dateHint }}</mat-hint>
-					<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-					<mat-datepicker #picker></mat-datepicker>
-				</mat-form-field>
-				<mat-form-field class="col-md-4 mt-2" appearance="outline">
-					<mat-label>Callback Time</mat-label>
-					<mat-select formControlName="callback_time">
-						<mat-option *ngFor="let slot of timeSlots" [value]="slot">{{ slot }}</mat-option>
-					</mat-select>
-				</mat-form-field>
-				<div class="col-md-4 d-flex align-items-center">
-					<span class="badge bg-secondary py-2 px-3">EST (Eastern Standard Time)</span>
-				</div>
-			</div>
-
-			<!-- Action Buttons -->
-			<div class="d-flex justify-content-center gap-3 mt-4">
-				<button
-					mat-raised-button
-					type="reset"
-					class="bg-danger text-light px-4"
-					(click)="resetForm()">
-					<i class="fas fa-undo me-1"></i> {{ labels.resetButton }}
-				</button>
-				<button
-					mat-raised-button
-					type="submit"
-					class="bg-primary text-light px-4"
-					(click)="submitrequest()"
-					[disabled]="contactForm.invalid">
-					<i class="fas fa-paper-plane me-1"></i> {{ labels.submitButton }}
-				</button>
-			</div>
-
-			<!-- Schedule Free Consultation -->
-			<div class="text-center mt-4">
-				<a
-					[href]="bookingLink"
-					target="_blank"
-					rel="noopener noreferrer"
-					mat-raised-button
-					class="text-light px-5 py-2"
-					style="font-size: 1.05rem; background-color: #0078D4">
-					<i class="fas fa-calendar-check me-2"></i>{{ bookingButtonText }}
-				</a>
-			</div>
-
-			<!-- Feedback Alerts -->
-			<div *ngIf="submitSuccess" class="alert alert-success mt-4 text-center" role="alert">
-				<i class="fas fa-check-circle me-2"></i>Thank you! Your message has been sent. We will get back to you shortly.
-			</div>
-			<div *ngIf="submitError" class="alert alert-danger mt-4 text-center" role="alert">
-				<i class="fas fa-exclamation-circle me-2"></i>Sorry, something went wrong. Please try again or email us directly at
-				<a href="mailto:contact@cloudcompliant.solutions">contact&#64;cloudcompliant.solutions</a>
-			</div>
-		</form>
-	</div>
-
-	<!-- Mobile -->
-	<div *ngIf="isMobile">
-		<form
-			[formGroup]="contactForm"
-			class="p-4 shadow-sm mx-2"
-			style="background-color: rgb(243, 243, 243); border-radius: 16px">
-
-			<div class="container-fluid">
-				<!-- Personal Info -->
-				<h6 class="text-secondary text-uppercase fw-bold mb-3 text-center">
-					<i class="fas fa-user me-2"></i>Your Information
-				</h6>
-
-				<mat-form-field class="w-100 mb-2" appearance="outline">
-					<mat-label>{{ labels.name }}</mat-label>
-					<input matInput formControlName="name" />
-				</mat-form-field>
-
-				<mat-form-field class="w-100 mb-2" appearance="outline">
-					<mat-label>{{ labels.email }}</mat-label>
-					<input matInput formControlName="email" />
-					<mat-error *ngIf="contactForm.get('email')?.errors?.['email']">
-						{{ labels.emailError }}
-					</mat-error>
-				</mat-form-field>
-
-				<mat-form-field class="w-100 mb-2" appearance="outline">
-					<mat-label>{{ labels.contactNumber }}</mat-label>
-					<input matInput type="tel" formControlName="contact_number" />
-					<mat-error *ngIf="contactForm.get('contact_number')?.errors">
-						{{ labels.contactNumberError }}
-					</mat-error>
-				</mat-form-field>
-
-				<!-- Project Details -->
-				<h6 class="text-secondary text-uppercase fw-bold mb-3 mt-3 text-center">
-					<i class="fas fa-clipboard me-2"></i>Project Details
-				</h6>
-
-				<mat-form-field class="w-100 mb-2" appearance="outline">
-					<mat-label>{{ labels.projectDescription }}</mat-label>
-					<textarea matInput formControlName="project_description" rows="3"></textarea>
-				</mat-form-field>
-
-				<!-- Callback -->
-				<div class="text-center mt-3 mb-4">
-					<button
-						mat-stroked-button
-						type="button"
-						[class]="showDatePicker ? 'text-danger' : 'text-info'"
-						(click)="toggleDatePicker()">
-						<i [class]="showDatePicker ? 'fas fa-times me-2' : 'fas fa-calendar-alt me-2'"></i>
-						{{ showDatePicker ? 'Remove Call Back Date' : labels.chooseCallBackMobile }}
-					</button>
-				</div>
-
-				<div *ngIf="showDatePicker" class="mb-4 p-4 rounded" style="background-color: rgb(233, 233, 233)">
-					<mat-form-field class="w-100 mb-3" appearance="outline">
-						<mat-label>{{ labels.chooseDate }}</mat-label>
-						<input
-							matInput
-							formControlName="contact_back_Date"
-							[matDatepickerFilter]="myFilter"
-							[matDatepicker]="picker" />
-						<mat-hint>{{ labels.dateHint }}</mat-hint>
-						<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-						<mat-datepicker #picker></mat-datepicker>
-					</mat-form-field>
-					<mat-form-field class="w-100 mb-3" appearance="outline">
-						<mat-label>Callback Time</mat-label>
-						<mat-select formControlName="callback_time">
-							<mat-option *ngFor="let slot of timeSlots" [value]="slot">{{ slot }}</mat-option>
-						</mat-select>
-					</mat-form-field>
-					<div class="text-center">
-						<span class="badge bg-secondary py-2 px-3">EST (Eastern Standard Time)</span>
-					</div>
-				</div>
-
-				<!-- Action Buttons -->
-				<div class="d-flex justify-content-center gap-3 mt-3">
-					<button
-						mat-raised-button
-						type="reset"
-						class="bg-danger text-light"
-						(click)="resetForm()">
-						<i class="fas fa-undo me-1"></i> {{ labels.resetButton }}
-					</button>
-					<button
-						mat-raised-button
-						type="submit"
-						class="bg-primary text-light"
-						(click)="submitrequest()"
-						[disabled]="contactForm.invalid">
-						<i class="fas fa-paper-plane me-1"></i> {{ labels.submitButton }}
-					</button>
-				</div>
-
-				<!-- Schedule Free Consultation -->
-				<div class="text-center mt-3">
-					<a
-						[href]="bookingLink"
-						target="_blank"
-						rel="noopener noreferrer"
-						mat-raised-button
-						class="text-light px-4 py-2"
-						style="font-size: 1rem; background-color: #0078D4">
-						<i class="fas fa-calendar-check me-2"></i>{{ bookingButtonText }}
-					</a>
-				</div>
-
-				<!-- Feedback Alerts -->
-				<div *ngIf="submitSuccess" class="alert alert-success mt-3 text-center" role="alert">
-					<i class="fas fa-check-circle me-2"></i>Thank you! Your message has been sent.
-				</div>
-				<div *ngIf="submitError" class="alert alert-danger mt-3 text-center" role="alert">
-					<i class="fas fa-exclamation-circle me-2"></i>Sorry, something went wrong. Please email us at
-					<a href="mailto:contact@cloudcompliant.solutions">contact&#64;cloudcompliant.solutions</a>
-				</div>
-			</div>
-		</form>
-	</div>
+  <!-- Mobile -->
+  @if (isMobile) {
+    <div>
+      <form
+        [formGroup]="contactForm"
+        class="p-4 shadow-sm mx-2 app-bg-card"
+        style="border-radius: 16px">
+        <div class="container-fluid">
+          <!-- Personal Info -->
+          <h6 class="text-secondary text-uppercase fw-bold mb-3 text-center">
+            <i class="fas fa-user me-2"></i>Your Information
+          </h6>
+          <mat-form-field class="w-100 mb-2" appearance="outline">
+            <mat-label>{{ labels.name }}</mat-label>
+            <input matInput formControlName="name" />
+          </mat-form-field>
+          <mat-form-field class="w-100 mb-2" appearance="outline">
+            <mat-label>{{ labels.email }}</mat-label>
+            <input matInput formControlName="email" />
+            @if (contactForm.get('email')?.errors?.['email']) {
+              <mat-error>
+                {{ labels.emailError }}
+              </mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field class="w-100 mb-2" appearance="outline">
+            <mat-label>{{ labels.contactNumber }}</mat-label>
+            <input matInput type="tel" formControlName="contact_number" />
+            @if (contactForm.get('contact_number')?.errors) {
+              <mat-error>
+                {{ labels.contactNumberError }}
+              </mat-error>
+            }
+          </mat-form-field>
+          <!-- Project Details -->
+          <h6 class="text-secondary text-uppercase fw-bold mb-3 mt-3 text-center">
+            <i class="fas fa-clipboard me-2"></i>Project Details
+          </h6>
+          <mat-form-field class="w-100 mb-2" appearance="outline">
+            <mat-label>{{ labels.projectDescription }}</mat-label>
+            <textarea matInput formControlName="project_description" rows="3"></textarea>
+          </mat-form-field>
+          <!-- Callback -->
+          <div class="text-center mt-3 mb-4">
+            <button
+              mat-stroked-button
+              type="button"
+              [class]="showDatePicker ? 'text-danger' : 'text-info'"
+              (click)="toggleDatePicker()">
+              <i [class]="showDatePicker ? 'fas fa-times me-2' : 'fas fa-calendar-alt me-2'"></i>
+              {{ showDatePicker ? 'Remove Call Back Date' : labels.chooseCallBackMobile }}
+            </button>
+          </div>
+          @if (showDatePicker) {
+            <div class="mb-4 p-4 rounded app-bg-card">
+              <mat-form-field class="w-100 mb-3" appearance="outline">
+                <mat-label>{{ labels.chooseDate }}</mat-label>
+                <input
+                  matInput
+                  formControlName="contact_back_Date"
+                  [matDatepickerFilter]="myFilter"
+                  [matDatepicker]="picker" />
+                <mat-hint>{{ labels.dateHint }}</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field class="w-100 mb-3" appearance="outline">
+                <mat-label>Callback Time</mat-label>
+                <mat-select formControlName="callback_time">
+                  @for (slot of timeSlots; track slot) {
+                    <mat-option [value]="slot">{{ slot }}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+              <div class="text-center">
+                <span class="badge bg-secondary py-2 px-3">EST (Eastern Standard Time)</span>
+              </div>
+            </div>
+          }
+          <!-- Action Buttons -->
+          <div class="d-flex justify-content-center gap-3 mt-3">
+            <button
+              mat-raised-button
+              type="reset"
+              class="bg-danger text-light"
+              (click)="resetForm()">
+              <i class="fas fa-undo me-1"></i> {{ labels.resetButton }}
+            </button>
+            <button
+              mat-raised-button
+              type="submit"
+              class="bg-primary text-light"
+              (click)="submitrequest()"
+              [disabled]="contactForm.invalid">
+              <i class="fas fa-paper-plane me-1"></i> {{ labels.submitButton }}
+            </button>
+          </div>
+          <!-- Schedule Free Consultation -->
+          <div class="text-center mt-3">
+            <a
+              [href]="bookingLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              mat-raised-button
+              class="text-light px-4 py-2 app-bg-accent"
+              style="font-size: 1rem">
+              <i class="fas fa-calendar-check me-2"></i>{{ bookingButtonText }}
+            </a>
+          </div>
+          <!-- Feedback Alerts -->
+          @if (submitSuccess) {
+            <div class="alert alert-success mt-3 text-center" role="alert">
+              <i class="fas fa-check-circle me-2"></i>Thank you! Your message has been sent.
+            </div>
+          }
+          @if (submitError) {
+            <div class="alert alert-danger mt-3 text-center" role="alert">
+              <i class="fas fa-exclamation-circle me-2"></i>Sorry, something went wrong. Please email us at
+              <a href="mailto:contact@cloudcompliant.solutions">contact&#64;cloudcompliant.solutions</a>
+            </div>
+          }
+        </div>
+      </form>
+    </div>
+  }
 </div>

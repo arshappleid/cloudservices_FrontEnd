@@ -19,7 +19,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { FeatureDevlopmentComponent } from './Components/home/feature-devlopment/feature-devlopment.component';
 import { ServicesComponent } from './Components/services/services.component';
 import { TestimonialsComponent } from './Components/testimonials/testimonials.component';
@@ -71,8 +70,6 @@ export function initializeApp(configService: ConfigService) {
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    // ng-bootstrap
-    NgbCarouselModule,
   ],
   providers: [
     {

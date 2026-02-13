@@ -47,9 +47,18 @@ export interface FooterLink {
   url: string;
 }
 
+export interface Theme {
+  backgroundColor: string;
+  cardBackgroundColor: string;
+  navBackgroundColor: string;
+  accentColor: string;
+  textColor: string;
+}
+
 export interface SiteConfig {
   companyName: string;
   backendEndpoint: string;
+  theme: Theme;
   navLinks: NavLink[];
   home: {
     heroMotto: string[];
