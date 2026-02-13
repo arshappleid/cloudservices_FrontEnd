@@ -5,6 +5,7 @@
 	"navLinks": [
 		{ "label": "Home", "route": "/" },
 		{ "label": "Services", "route": "/services" },
+		{ "label": "Testimonials", "route": "/testimonials" },
 		{ "label": "Contact", "route": "/contact" }
 	],
 
@@ -149,6 +150,33 @@
 				"description": "Looking to complete your business software project quickly and efficiently? We specialize in helping businesses complete their software projects on a contract basis, offering expert assistance in niche areas to ensure your project is completed on time and on budget. With our years of experience and commitment to quality, you can trust us to deliver top-notch results that meet your specific needs. So why wait? Contact us today to get started on your next project",
 				"img_url": "https://images.pexels.com/photos/5935792/pexels-photo-5935792.jpeg?auto=compress&cs=tinysrgb&w=600",
 				"pricing": "Starting at $5,000 / audit"
+			}
+		]
+	},
+
+	"testimonials": {
+		"pageTitle": "What Our Clients Say",
+		"pageTitleMobile": "Client Testimonials",
+		"items": [
+			{
+				"clientName": "Sarah Mitchell",
+				"company": "HealthFirst Medical Group",
+				"testimonial": "Cloud Compliant Solutions helped us achieve HIPAA compliance in record time. Their team was knowledgeable, responsive, and made the entire process seamless. We now have full confidence in our cloud security posture."
+			},
+			{
+				"clientName": "James Rodriguez",
+				"company": "FinSecure Capital",
+				"testimonial": "The SOC 2 audit preparation was daunting until we partnered with Cloud Compliant Solutions. They guided us through every step and we passed our audit on the first attempt. Highly recommend their expertise."
+			},
+			{
+				"clientName": "Emily Chen",
+				"company": "DataVault Technologies",
+				"testimonial": "We needed a secure AWS environment set up from scratch and Cloud Compliant Solutions delivered beyond our expectations. Their attention to detail on network architecture and security configurations was outstanding."
+			},
+			{
+				"clientName": "Michael Thompson",
+				"company": "NovaPay Systems",
+				"testimonial": "Their auditing reports are thorough and actionable. Cloud Compliant Solutions identified vulnerabilities we had overlooked for years. They are now our go-to partner for all compliance needs."
 			}
 		]
 	},

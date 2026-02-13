@@ -25,6 +25,7 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { FeatureDevlopmentComponent } from './Components/home/feature-devlopment/feature-devlopment.component';
 import { NgxTypedJsModule } from 'ngx-typed-js';
 import { ServicesComponent } from './Components/services/services.component';
+import { TestimonialsComponent } from './Components/testimonials/testimonials.component';
 import { APP_INITIALIZER } from '@angular/core';
 import { ConfigService } from './services/config.service';
 
@@ -42,6 +43,7 @@ export function initializeApp(configService: ConfigService) {
     TeamComponent,
     FeatureDevlopmentComponent,
     ServicesComponent,
+    TestimonialsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -50,6 +52,7 @@ export function initializeApp(configService: ConfigService) {
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'contact', component: ContactComponent },
       { path: 'services', component:  ServicesComponent},
+      { path: 'testimonials', component: TestimonialsComponent },
       { path: 'team', component: TeamComponent },
     ]),
     RouterModule,

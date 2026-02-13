@@ -28,6 +28,12 @@ export interface ServiceItem {
   img_url: string;
 }
 
+export interface TestimonialItem {
+  clientName: string;
+  company: string;
+  testimonial: string;
+}
+
 export interface FooterLink {
   label: string;
   url: string;
@@ -47,6 +53,11 @@ export interface SiteConfig {
     pageTitle: string;
     pageTitleMobile: string;
     items: ServiceItem[];
+  };
+  testimonials: {
+    pageTitle: string;
+    pageTitleMobile: string;
+    items: TestimonialItem[];
   };
   contact: {
     pageTitle: string;

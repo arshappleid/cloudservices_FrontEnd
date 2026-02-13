@@ -1,278 +1,224 @@
-<div>
-	<h3 class="text-dark m-2 text-center">{{ pageTitle }}</h3>
+<div class="container py-4">
+	<h3 class="text-dark mb-4 text-center" style="font-family: 'Lato', sans-serif">{{ pageTitle }}</h3>
+
+	<!-- Desktop -->
 	<div *ngIf="!isMobile">
 		<form
 			[formGroup]="contactForm"
-			class="border border-1 p-5 rounded"
-			style="background-color: rgb(233, 233, 233)"
-		>
-			<div class="container-fluid">
-				<div class="row">
-					<mat-form-field class="col col-sm-3" mat-theme="custom">
-						<mat-label matLabel>{{ labels.name }}</mat-label>
-						<input matInput formControlName="name" />
-					</mat-form-field>
+			class="p-5 rounded shadow-sm mx-auto"
+			style="background-color: rgb(243, 243, 243); max-width: 900px">
 
-					<mat-form-field class="col col-sm-4 float-right">
-						<mat-label matLabel>{{ labels.email }}</mat-label>
-						<input matInput formControlName="email" />
-						<small
-							style="text-danger"
-							*ngIf="contactForm.get('email')?.errors?.['email']"
-							>{{ labels.emailError }}</small
-						>
-					</mat-form-field>
+			<!-- Section: Personal Info -->
+			<h6 class="text-secondary text-uppercase fw-bold mb-3">
+				<i class="fas fa-user me-2"></i>Your Information
+			</h6>
+			<div class="row g-3">
+				<mat-form-field class="col-md-4" appearance="outline">
+					<mat-label>{{ labels.name }}</mat-label>
+					<input matInput formControlName="name" />
+				</mat-form-field>
 
-					<mat-form-field class="col col-sm-4 float-right">
-						<mat-label matLabel>{{
-							labels.contactNumber
-						}}</mat-label>
-						<input
-							matInput
-							type="tel"
-							formControlName="contact_number"
-						/>
-						<small
-							style="text-danger"
-							*ngIf="contactForm.get('contact_number')?.errors"
-							>{{ labels.contactNumberError }}</small
-						>
-					</mat-form-field>
-				</div>
-				<div class="row mt-1">
-					<mat-form-field>
-						<mat-label matLabel class="col-lg-5">{{
-							labels.projectDescription
-						}}</mat-label>
-						<textarea
-							matInput
-							formControlName="project_description"
-						></textarea>
-					</mat-form-field>
-				</div>
-				<div *ngIf="showDatePicker" class="row mt-1" id="datepicker">
-					<mat-form-field class="col col-sm-3" appearance="fill">
-						<mat-label>{{ labels.chooseDate }}</mat-label>
-						<input
-							matInput
-							formControlName="contact_back_Date"
-							[matDatepickerFilter]="myFilter"
-							[matDatepicker]="picker"
-						/>
-						<mat-hint>{{ labels.dateHint }}</mat-hint>
-						<mat-datepicker-toggle
-							matSuffix
-							[for]="picker"
-						></mat-datepicker-toggle>
-						<mat-datepicker #picker></mat-datepicker>
-					</mat-form-field>
-					<mat-form-field class="col col-sm-3" appearance="fill">
-						<mat-label>Callback Time (EST)</mat-label>
-						<mat-select formControlName="callback_time">
-							<mat-option
-								*ngFor="let slot of timeSlots"
-								[value]="slot"
-								>{{ slot }}</mat-option
-							>
-						</mat-select>
-						<mat-hint>EST</mat-hint>
-					</mat-form-field>
-					<span class="col col-sm-2 d-flex align-items-center">
-						<span class="badge bg-secondary"
-							>EST (Eastern Standard Time)</span
-						>
-					</span>
-				</div>
+				<mat-form-field class="col-md-4" appearance="outline">
+					<mat-label>{{ labels.email }}</mat-label>
+					<input matInput formControlName="email" />
+					<mat-error *ngIf="contactForm.get('email')?.errors?.['email']">
+						{{ labels.emailError }}
+					</mat-error>
+				</mat-form-field>
 
-				<div class="row justify-content-md-center">
-					<button
-						mat-raised-button
-						class="col col-md-3 mx-5 bg-info text-light"
-						(click)="toggleDatePicker()"
-					>
-						{{ labels.chooseCallBackDate }}
-					</button>
+				<mat-form-field class="col-md-4" appearance="outline">
+					<mat-label>{{ labels.contactNumber }}</mat-label>
+					<input matInput type="tel" formControlName="contact_number" />
+					<mat-error *ngIf="contactForm.get('contact_number')?.errors">
+						{{ labels.contactNumberError }}
+					</mat-error>
+				</mat-form-field>
+			</div>
 
-					<button
-						mat-raised-button
-						type="reset"
-						class="col col-md-1 mx-5 bg-danger text-light"
-						(click)="resetForm()"
-					>
-						{{ labels.resetButton }}
-					</button>
+			<!-- Section: Project Details -->
+			<h6 class="text-secondary text-uppercase fw-bold mb-3 mt-4">
+				<i class="fas fa-clipboard me-2"></i>Project Details
+			</h6>
+			<div class="row">
+				<mat-form-field class="col-12" appearance="outline">
+					<mat-label>{{ labels.projectDescription }}</mat-label>
+					<textarea matInput formControlName="project_description" rows="4"></textarea>
+				</mat-form-field>
+			</div>
 
-					<button
-						mat-raised-button
-						type="submit"
-						class="col col-md-1 mx-5 bg-primary text-light"
-						(click)="submitrequest()"
-						[disabled]="contactForm.invalid"
-					>
-						{{ labels.submitButton }}
-					</button>
-				</div>
+			<!-- Section: Callback Scheduling -->
+			<div class="text-center mt-4 mb-4">
+				<button
+					mat-stroked-button
+					type="button"
+					[class]="showDatePicker ? 'text-danger' : 'text-info'"
+					(click)="toggleDatePicker()">
+					<i [class]="showDatePicker ? 'fas fa-times me-2' : 'fas fa-calendar-alt me-2'"></i>
+					{{ showDatePicker ? 'Remove Call Back Date' : labels.chooseCallBackDate }}
+				</button>
+			</div>
 
-				<div
-					*ngIf="submitSuccess"
-					class="alert alert-success mt-3 text-center"
-					role="alert"
-				>
-					Thank you! Your message has been sent. We will get back to
-					you shortly.
+			<div *ngIf="showDatePicker" class="row g-3 mb-4 mt-2 p-4 rounded" style="background-color: rgb(233, 233, 233)">
+				<h6 class="text-secondary text-uppercase fw-bold mb-3">
+					<i class="fas fa-clock me-2"></i>Schedule a Callback
+				</h6>
+				<mat-form-field class="col-md-4 mt-2" appearance="outline">
+					<mat-label>{{ labels.chooseDate }}</mat-label>
+					<input
+						matInput
+						formControlName="contact_back_Date"
+						[matDatepickerFilter]="myFilter"
+						[matDatepicker]="picker" />
+					<mat-hint>{{ labels.dateHint }}</mat-hint>
+					<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+					<mat-datepicker #picker></mat-datepicker>
+				</mat-form-field>
+				<mat-form-field class="col-md-4 mt-2" appearance="outline">
+					<mat-label>Callback Time</mat-label>
+					<mat-select formControlName="callback_time">
+						<mat-option *ngFor="let slot of timeSlots" [value]="slot">{{ slot }}</mat-option>
+					</mat-select>
+				</mat-form-field>
+				<div class="col-md-4 d-flex align-items-center">
+					<span class="badge bg-secondary py-2 px-3">EST (Eastern Standard Time)</span>
 				</div>
-				<div
-					*ngIf="submitError"
-					class="alert alert-danger mt-3 text-center"
-					role="alert"
-				>
-					Sorry, something went wrong. Please try again or email us
-					directly at
-					<a href="mailto:contact@cloudcompliant.solutions"
-						>contact@cloudcompliant.solutions</a
-					>
-				</div>
+			</div>
+
+			<!-- Action Buttons -->
+			<div class="d-flex justify-content-center gap-3 mt-4">
+				<button
+					mat-raised-button
+					type="reset"
+					class="bg-danger text-light px-4"
+					(click)="resetForm()">
+					<i class="fas fa-undo me-1"></i> {{ labels.resetButton }}
+				</button>
+				<button
+					mat-raised-button
+					type="submit"
+					class="bg-primary text-light px-4"
+					(click)="submitrequest()"
+					[disabled]="contactForm.invalid">
+					<i class="fas fa-paper-plane me-1"></i> {{ labels.submitButton }}
+				</button>
+			</div>
+
+			<!-- Feedback Alerts -->
+			<div *ngIf="submitSuccess" class="alert alert-success mt-4 text-center" role="alert">
+				<i class="fas fa-check-circle me-2"></i>Thank you! Your message has been sent. We will get back to you shortly.
+			</div>
+			<div *ngIf="submitError" class="alert alert-danger mt-4 text-center" role="alert">
+				<i class="fas fa-exclamation-circle me-2"></i>Sorry, something went wrong. Please try again or email us directly at
+				<a href="mailto:contact@cloudcompliant.solutions">contact@cloudcompliant.solutions</a>
 			</div>
 		</form>
 	</div>
 
-	<!--Mobile Website-->
+	<!-- Mobile -->
 	<div *ngIf="isMobile">
 		<form
 			[formGroup]="contactForm"
-			class="p-4 mat-elevation-z4"
-			style="
-				max-height: 95vh;
-				background-color: rgb(233, 233, 233);
-				border-radius: 25px;
-			"
-		>
-			<!--Holds rest of the input fields-->
-			<div class="container-fluid text-center">
-				<div class="row text-center">
-					<mat-form-field class="row">
-						<mat-label matLabel>{{ labels.name }}</mat-label>
-						<input matInput formControlName="name" />
-					</mat-form-field>
+			class="p-4 shadow-sm mx-2"
+			style="background-color: rgb(243, 243, 243); border-radius: 16px">
 
-					<mat-form-field class="row">
-						<mat-label matLabel>{{ labels.email }}</mat-label>
-						<input matInput formControlName="email" />
-						<small
-							style="text-danger"
-							*ngIf="contactForm.get('email')?.errors?.['email']"
-							>{{ labels.emailError }}</small
-						>
-					</mat-form-field>
+			<div class="container-fluid">
+				<!-- Personal Info -->
+				<h6 class="text-secondary text-uppercase fw-bold mb-3 text-center">
+					<i class="fas fa-user me-2"></i>Your Information
+				</h6>
 
-					<mat-form-field class="row">
-						<mat-label matLabel>{{
-							labels.contactNumber
-						}}</mat-label>
-						<input
-							matInput
-							type="tel"
-							formControlName="contact_number"
-						/>
-						<small
-							style="text-danger"
-							*ngIf="contactForm.get('contact_number')?.errors"
-							>{{ labels.contactNumberError }}</small
-						>
-					</mat-form-field>
+				<mat-form-field class="w-100 mb-2" appearance="outline">
+					<mat-label>{{ labels.name }}</mat-label>
+					<input matInput formControlName="name" />
+				</mat-form-field>
 
-					<mat-form-field class="row">
-						<mat-label matLabel>{{
-							labels.projectDescription
-						}}</mat-label>
-						<textarea
-							matInput
-							formControlName="project_description"
-						></textarea>
-					</mat-form-field>
+				<mat-form-field class="w-100 mb-2" appearance="outline">
+					<mat-label>{{ labels.email }}</mat-label>
+					<input matInput formControlName="email" />
+					<mat-error *ngIf="contactForm.get('email')?.errors?.['email']">
+						{{ labels.emailError }}
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="w-100 mb-2" appearance="outline">
+					<mat-label>{{ labels.contactNumber }}</mat-label>
+					<input matInput type="tel" formControlName="contact_number" />
+					<mat-error *ngIf="contactForm.get('contact_number')?.errors">
+						{{ labels.contactNumberError }}
+					</mat-error>
+				</mat-form-field>
+
+				<!-- Project Details -->
+				<h6 class="text-secondary text-uppercase fw-bold mb-3 mt-3 text-center">
+					<i class="fas fa-clipboard me-2"></i>Project Details
+				</h6>
+
+				<mat-form-field class="w-100 mb-2" appearance="outline">
+					<mat-label>{{ labels.projectDescription }}</mat-label>
+					<textarea matInput formControlName="project_description" rows="3"></textarea>
+				</mat-form-field>
+
+				<!-- Callback -->
+				<div class="text-center mt-3 mb-4">
+					<button
+						mat-stroked-button
+						type="button"
+						[class]="showDatePicker ? 'text-danger' : 'text-info'"
+						(click)="toggleDatePicker()">
+						<i [class]="showDatePicker ? 'fas fa-times me-2' : 'fas fa-calendar-alt me-2'"></i>
+						{{ showDatePicker ? 'Remove Call Back Date' : labels.chooseCallBackMobile }}
+					</button>
 				</div>
-				<div *ngIf="showDatePicker" class="row mt-1" id="datepicker">
-					<mat-form-field class="row" appearance="fill">
+
+				<div *ngIf="showDatePicker" class="mb-4 p-4 rounded" style="background-color: rgb(233, 233, 233)">
+					<mat-form-field class="w-100 mb-3" appearance="outline">
 						<mat-label>{{ labels.chooseDate }}</mat-label>
 						<input
 							matInput
 							formControlName="contact_back_Date"
 							[matDatepickerFilter]="myFilter"
-							[matDatepicker]="picker"
-						/>
+							[matDatepicker]="picker" />
 						<mat-hint>{{ labels.dateHint }}</mat-hint>
-						<mat-datepicker-toggle
-							matSuffix
-							[for]="picker"
-						></mat-datepicker-toggle>
+						<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 						<mat-datepicker #picker></mat-datepicker>
 					</mat-form-field>
-					<mat-form-field class="row" appearance="fill">
-						<mat-label>Callback Time (EST)</mat-label>
+					<mat-form-field class="w-100 mb-3" appearance="outline">
+						<mat-label>Callback Time</mat-label>
 						<mat-select formControlName="callback_time">
-							<mat-option
-								*ngFor="let slot of timeSlots"
-								[value]="slot"
-								>{{ slot }}</mat-option
-							>
+							<mat-option *ngFor="let slot of timeSlots" [value]="slot">{{ slot }}</mat-option>
 						</mat-select>
-						<mat-hint>EST</mat-hint>
 					</mat-form-field>
-					<span class="badge bg-secondary mt-1"
-						>EST (Eastern Standard Time)</span
-					>
+					<div class="text-center">
+						<span class="badge bg-secondary py-2 px-3">EST (Eastern Standard Time)</span>
+					</div>
 				</div>
-				<div class="row">
-					<div class="row lg-3 justify-content-md-center">
-						<button
-							mat-raised-button
-							class="row-md-2 bg-info text-light"
-							(click)="toggleDatePicker()"
-						>
-							{{ labels.chooseCallBackMobile }}
-						</button>
-					</div>
-					<div class="row text-center">
-						<div class="col mt-3 justify-content-md-center">
-							<button
-								mat-raised-button
-								class="bg-danger text-light"
-								type="reset"
-								(click)="resetForm()"
-							>
-								{{ labels.resetButton }}
-							</button>
-						</div>
-						<div class="col mt-3 justify-content-md-center">
-							<button
-								mat-raised-button
-								class="bg-primary text-light"
-								type="submit"
-								(click)="submitrequest()"
-								[disabled]="contactForm.invalid"
-							>
-								{{ labels.submitButton }}
-							</button>
-						</div>
-					</div>
 
-					<div
-						*ngIf="submitSuccess"
-						class="alert alert-success mt-3 text-center"
-						role="alert"
-					>
-						Thank you! Your message has been sent.
-					</div>
-					<div
-						*ngIf="submitError"
-						class="alert alert-danger mt-3 text-center"
-						role="alert"
-					>
-						Sorry, something went wrong. Please email us at
-						<a href="mailto:contact@cloudcompliant.solutions"
-							>contact@cloudcompliant.solutions</a
-						>
-					</div>
+				<!-- Action Buttons -->
+				<div class="d-flex justify-content-center gap-3 mt-3">
+					<button
+						mat-raised-button
+						type="reset"
+						class="bg-danger text-light"
+						(click)="resetForm()">
+						<i class="fas fa-undo me-1"></i> {{ labels.resetButton }}
+					</button>
+					<button
+						mat-raised-button
+						type="submit"
+						class="bg-primary text-light"
+						(click)="submitrequest()"
+						[disabled]="contactForm.invalid">
+						<i class="fas fa-paper-plane me-1"></i> {{ labels.submitButton }}
+					</button>
+				</div>
+
+				<!-- Feedback Alerts -->
+				<div *ngIf="submitSuccess" class="alert alert-success mt-3 text-center" role="alert">
+					<i class="fas fa-check-circle me-2"></i>Thank you! Your message has been sent.
+				</div>
+				<div *ngIf="submitError" class="alert alert-danger mt-3 text-center" role="alert">
+					<i class="fas fa-exclamation-circle me-2"></i>Sorry, something went wrong. Please email us at
+					<a href="mailto:contact@cloudcompliant.solutions">contact@cloudcompliant.solutions</a>
 				</div>
 			</div>
 		</form>
