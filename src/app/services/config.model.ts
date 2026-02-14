@@ -40,6 +40,8 @@ export interface CaseStudyItem {
   description: string;
   img_url: string;
   projectLink: string;
+  docUrl: string;
+  tags: string[];
 }
 
 export interface FooterLink {

@@ -177,7 +177,7 @@
 			{
 				"name": "Auditing Reports",
 				"description": "Looking to complete your business software project quickly and efficiently? We specialize in helping businesses complete their software projects on a contract basis, offering expert assistance in niche areas to ensure your project is completed on time and on budget. With our years of experience and commitment to quality, you can trust us to deliver top-notch results that meet your specific needs. So why wait? Contact us today to get started on your next project",
-				"img_url": "/assets/images/booked.svg",
+				"img_url": "/assets/images/services/booked.svg",
 				"pricing": "Starting at $2,000 / audit"
 			},
 			{
@@ -197,22 +197,37 @@
 				"name": "HIPAA-Compliant AWS Infrastructure",
 				"client": "HealthFirst Medical Group",
 				"description": "Designed and deployed a fully HIPAA-compliant cloud infrastructure on AWS for a multi-location medical practice. Implemented encrypted data storage, VPC isolation, IAM policies, and automated audit logging to meet all regulatory requirements.",
-				"img_url": "https://images.pexels.com/photos/5380596/pexels-photo-5380596.jpeg?auto=compress&cs=tinysrgb&w=600",
-				"projectLink": "https://github.com/CloudCompliantSolutions/hipaa-aws-infra"
+				"img_url": "/assets/images/work/aws-hipaa-architecture.png",
+				"projectLink": "https://github.com/CloudCompliantSolutions/hipaa-aws-infra",
+				"docUrl": "https://cloudcompliant-website-docs.s3.us-east-1.amazonaws.com/Work/AWS-HIPAA-Compliance-Overview.pdf",
+				"tags": ["AWS", "Compliance"]
 			},
 			{
 				"name": "SOC 2 Compliance Automation Toolkit",
 				"client": "FinSecure Capital",
 				"description": "Built a custom compliance automation toolkit that continuously monitors Azure resources against SOC 2 controls. Includes policy-as-code definitions, automated evidence collection, and a real-time compliance dashboard.",
-				"img_url": "https://images.pexels.com/photos/5935788/pexels-photo-5935788.jpeg?auto=compress&cs=tinysrgb&w=600",
-				"projectLink": "https://github.com/CloudCompliantSolutions/soc2-automation"
+				"img_url": "/assets/images/work/aws-soc-image.png",
+				"projectLink": "https://github.com/CloudCompliantSolutions/soc2-automation",
+				"docUrl": "https://cloudcompliant-website-docs.s3.us-east-1.amazonaws.com/Work/AWS-SOC-Compliance-Overview.pdf",
+				"tags": ["AWS", "Compliance"]
 			},
 			{
-				"name": "Zero-Trust Network Architecture on GCP",
+				"name": "AWS Firewall Comparison",
 				"client": "DataVault Technologies",
-				"description": "Implemented a zero-trust network architecture on Google Cloud Platform including BeyondCorp access controls, identity-aware proxies, micro-segmentation, and continuous verification policies for a data analytics firm.",
-				"img_url": "https://images.pexels.com/photos/4508751/pexels-photo-4508751.jpeg?auto=compress&cs=tinysrgb&w=600",
-				"projectLink": "https://github.com/CloudCompliantSolutions/zero-trust-gcp"
+				"description": "Understanding differences between the different firewall offerings AWS offers. Contact us to hear about an even cheaper offering.",
+				"img_url": "/assets/images/work/aws-network-firewall.png",
+				"projectLink": "https://github.com/CloudCompliantSolutions/zero-trust-gcp",
+				"docUrl": "https://cloudcompliant-website-docs.s3.us-east-1.amazonaws.com/Work/AWS-Firewall-Comparison-Guide.pdf",
+				"tags": ["AWS"]
+			},
+			{
+				"name": "AWS Penetration Testing Guide",
+				"client": "DataVault Technologies",
+				"description": "AWS Penetration Testing Guide using the AWS CLI",
+				"img_url": "/assets/images/work/aws-pentesting-info.png",
+				"projectLink": "https://github.com/CloudCompliantSolutions/zero-trust-gcp",
+				"docUrl": "https://cloudcompliant-website-docs.s3.us-east-1.amazonaws.com/Work/AWS-Pentesting-Guide.pdf",
+				"tags": ["AWS"]
 			}
 		]
 	},

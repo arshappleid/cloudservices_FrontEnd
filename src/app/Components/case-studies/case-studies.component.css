@@ -1,0 +1,58 @@
+/* ── Filter pill bar ── */
+.filter-bar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.filter-bar-mobile {
+	justify-content: center;
+}
+
+.filter-pill {
+	border: 2px solid var(--app-accent, #0078d4);
+	background: transparent;
+	color: var(--app-accent, #0078d4);
+	border-radius: 999px;
+	padding: 0.4rem 1.25rem;
+	font-size: 0.9rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition:
+		background 0.25s,
+		color 0.25s;
+	white-space: nowrap;
+}
+
+.filter-pill:hover {
+	background: color-mix(in srgb, var(--app-accent, #0078d4) 12%, transparent);
+}
+
+.filter-pill.active {
+	background: var(--app-accent, #0078d4);
+	color: #fff;
+}
+
+/* ── Inline PDF viewer ── */
+.pdf-viewer-wrapper {
+	border: 1px solid #dee2e6;
+	border-radius: 8px;
+	overflow: hidden;
+	background: #fff;
+	/* Security: block text selection & copy */
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+/* Push zoom controls to the right */
+.pdf-viewer-wrapper ::ng-deep #toolbarViewerMiddle {
+	display: none !important;
+}
+
+.pdf-viewer-wrapper ::ng-deep #toolbarViewerLeft {
+	flex: 1;
+}
+
+.pdf-viewer-wrapper ::ng-deep #toolbarViewerRight {
+	margin-left: auto;
+}

@@ -1,62 +1,56 @@
 <div>
-  <!--Web app-->
-  @if (!isMobile) {
-    <div
-      class="p-5 app-bg-card"
-      style="border-radius: 25px"
-      >
-      <h3 class="text-dark">{{ title }}</h3>
-      <div style="display: flex; overflow: auto">
-        @for (item of images; track item) {
-          <div
-            class="card m-4"
-            style="min-width: 300px; max-width: 350px"
-            >
-            <img
-              src="{{ item.url }}"
-              class="card-img-top"
-              style="height: 230px; object-fit: cover"
-              alt="{{ item.alt }}"
-              />
-            <div class="card-body">
-              <h5 class="card-title">{{ item.title }}</h5>
-              <p class="card-text">{{ item.description }}</p>
-            </div>
-          </div>
-        }
-      </div>
-    </div>
-  }
+	<!--Web app-->
+	@if (!isMobile) {
+		<div class="p-5 app-bg-card" style="border-radius: 25px">
+			<h3 class="text-dark">{{ title }}</h3>
+			<div style="display: flex; overflow: auto">
+				@for (item of images; track item) {
+					<div
+						class="card m-4"
+						style="min-width: 300px; max-width: 350px"
+					>
+						<img
+							src="{{ item.url }}"
+							class="card-img-top"
+							style="height: 230px; object-fit: cover"
+							alt="{{ item.alt }}"
+						/>
+						<div class="card-body">
+							<h5 class="card-title">{{ item.title }}</h5>
+							<p class="card-text">{{ item.description }}</p>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	}
 
-  <!--Mobile app-->
-  @if (isMobile) {
-    <div
-      class="p-2 align-middle app-bg-card"
-		style="
-			min-height: 70vh;
-			border-radius: 10px;
-		"
-      >
-      <h3 class="text-dark mb-3">{{ title }}</h3>
-      <div style="display: flex; overflow-y: hidden; overflow-x: auto">
-        @for (item of images; track item) {
-          <div
-            class="card m-2"
-            style="min-width: 300px; max-width: 320px"
-            >
-            <img
-              src="{{ item.url }}"
-              class="card-img-top"
-              style="height: 207px; object-fit: cover"
-              alt="{{ item.alt }}"
-              />
-            <div class="card-body">
-              <h5 class="card-title">{{ item.title }}</h5>
-              <p class="card-text">{{ item.description }}</p>
-            </div>
-          </div>
-        }
-      </div>
-    </div>
-  }
+	<!--Mobile app-->
+	@if (isMobile) {
+		<div
+			class="p-2 align-middle app-bg-card"
+			style="min-height: 70vh; border-radius: 10px"
+		>
+			<h3 class="text-dark mb-3">{{ title }}</h3>
+			<div style="display: flex; overflow-y: hidden; overflow-x: auto">
+				@for (item of images; track item) {
+					<div
+						class="card m-2"
+						style="min-width: 300px; max-width: 320px"
+					>
+						<img
+							src="{{ item.url }}"
+							class="card-img-top"
+							style="height: 207px; object-fit: cover"
+							alt="{{ item.alt }}"
+						/>
+						<div class="card-body">
+							<h5 class="card-title">{{ item.title }}</h5>
+							<p class="card-text">{{ item.description }}</p>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	}
 </div>

@@ -24,6 +24,7 @@ import { ServicesComponent } from './Components/services/services.component';
 import { TestimonialsComponent } from './Components/testimonials/testimonials.component';
 import { CaseStudiesComponent } from './Components/case-studies/case-studies.component';
 import { HealthCheckComponent } from './Components/health-check/health-check.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { APP_INITIALIZER } from '@angular/core';
 import { ConfigService } from './services/config.service';
 
@@ -70,6 +71,7 @@ export function initializeApp(configService: ConfigService) {
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    NgxExtendedPdfViewerModule,
   ],
   providers: [
     {
