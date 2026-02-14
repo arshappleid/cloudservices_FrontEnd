@@ -20,7 +20,7 @@ RUN npx ng build --configuration production && \
 
 # Serve Stage
 # Use nginx:alpine for a lightweight production image
-FROM nginx:alpine
+FROM nginx:1.29-alpine
 
 # Copy custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
