@@ -15,7 +15,7 @@ export class CaseStudiesComponent implements OnInit {
   caseStudies: CaseStudyItem[] = [];
   filteredStudies: CaseStudyItem[] = [];
 
-  filters: string[] = ['All', 'AWS', 'Azure', 'GCP', 'Compliance', 'Microsoft 365 Administration'];
+  filters: string[] = [];
   activeFilter = 'All';
   openDocIndex: number | null = null;
 
@@ -25,6 +25,7 @@ export class CaseStudiesComponent implements OnInit {
     this.pageTitleMobile = config.caseStudies.pageTitleMobile;
     this.caseStudies = config.caseStudies.items;
     this.filteredStudies = [...this.caseStudies];
+    this.filters = config.caseStudies.filters ?? ['All', 'AWS', 'Azure', 'GCP', 'Compliance', 'Microsoft 365 Administration'];
   }
 
   ngOnInit(): void {

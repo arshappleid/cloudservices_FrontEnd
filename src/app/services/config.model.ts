@@ -76,6 +76,7 @@ export interface SiteConfig {
   caseStudies: {
     pageTitle: string;
     pageTitleMobile: string;
+    filters: string[];
     items: CaseStudyItem[];
   };
   testimonials: {
