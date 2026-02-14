@@ -228,6 +228,15 @@
 				"projectLink": "https://github.com/CloudCompliantSolutions/zero-trust-gcp",
 				"docUrl": "https://cloudcompliant-website-docs.s3.us-east-1.amazonaws.com/Work/AWS-Pentesting-Guide.pdf",
 				"tags": ["AWS"]
+			},
+			{
+				"name": "HIPAA Identify Compliance With Microsoft Intune Using ADDS",
+				"client": "DataVault Technologies",
+				"description": "HIPAA Identity, Access Management, Governance and Compliance Guidelines With Microsoft Intune Using Active Directory Domain Services (ADDS)",
+				"img_url": "/assets/images/work/microsoft-365-administrator.webp",
+				"projectLink": "https://github.com/arshappleid/azure-microsoft-365-HA",
+				"docUrl": "https://cloudcompliant-website-docs.s3.us-east-1.amazonaws.com/Work/Azure-Microsoft365-ADDS-HA-HIPAA-Compliant-Setup.pdf",
+				"tags": ["Azure", "Compliance", "Microsoft 365"]
 			}
 		]
 	},
